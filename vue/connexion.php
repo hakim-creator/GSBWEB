@@ -10,26 +10,29 @@
 <body>
 
   <div class="container">
-  <div class="row justify-content-md-center">
-    <div class="col col-lg-2">
-      <form>
-  <div class="row mb-3">
-    <label for="inputEmail3" class="">Nom d'utilisateur</label>
-    <div class="col-sm-12">
-      <input type="text" class="form-control" id="inputEmail3">
-    </div>
-  </div>
-  <div class="row mb-3">
-    <label for="inputPassword3" class="">Mot de passe</label>
-    <div class="col-sm-12">
-      <input type="password" class="form-control" id="inputPassword3">
-    </div>
-  </div>
-  
-  <button type="submit" class="btn btn-primary">Se connecter</button>
+  <form method="post"
+action="index.php?action=RU">
+<p>
+<label for="inom">Votre nom
+d'utilisateur</label><br />
+<input type="text" name="nomU" id="inom"
+value="<?php
+if (isset($_SESSION["nomUtil"]))
+echo $_SESSION["nomUtil"];
+?>"
+/>
+</p>
+<p>
+<label for="imdp">Votre mot de passe</label><br />
+<input type="password" name="motDePasseU"
+id="imdp" />
+</p>
+<br /><br />
+<p>
+<input type="submit" value="Se connecter" />
+</p>
+<br />
 </form>
-    </div>
-  </div>
 </div>
 
 

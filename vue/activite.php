@@ -28,6 +28,28 @@
   </div>
 </nav>
 
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Numéro</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Date</th>
+      <th scope="col">Lieu</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Paracetamol</td>
+      <td>12/25/2200</td>
+      <td>Place de la reb</td>
+      <td><button type="button" class="btn btn-outline-primary">Supprimer</button></td>
+    </tr>
+    
+  </tbody>
+</table>
+
 <script type="text/javascript" src="js/bootstrap.js"></script>
 
 </body>
