@@ -5,7 +5,7 @@
 	 <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 	 <title>
-	 Saisie des informations d'un nouvel elève
+	 Saisie des informations d'un nouvel activité
 	 </title>
 	 </head>
  <body>

@@ -28,7 +28,7 @@ require_once "vue/activite.php";
 }
 function chargementMedicament()
 {
-// inclusion du formulaire d'ajout d'un employé
+// inclusion du formulaire d'ajout d'un Medicament
 require_once "vue/medicament.php";
 }
 
@@ -82,7 +82,7 @@ $idE = htmlspecialchars($_POST["codeElevAction"]);
 // aiguillage
 if (!empty(htmlspecialchars($_POST["modif"])))
 {
-// recherche de l'employé correspondant à ce code
+// recherche dmedicament correspondant à ce code
 // via la fonction getEleve du modèle
 $eleve = getMedicament($idE);
 // inclusion du formulaire de modification (vue)
@@ -102,12 +102,12 @@ function modifMedicament()
  $Effet_SecondEl = htmlspecialchars($_POST["Effet_SecondEl"]);
  $Effet_TherapEl = htmlspecialchars($_POST["Effet_TherapEl"]);
  
- // mise à jour de l'employé : appel de la fonction updEmploye 
+ // mise à jour dmedicament : appel de la fonction updMedicament 
 
  // du modèle
 updMedicament($idEl, $nomEl, $descriptionEl,$Effet_SecondEl,$Effet_TherapEl );
 
-// recherche des employés : appel de la fonction getEmployes du modèle
+// recherche medicaments : appel de la fonction getMedicament du modèle
  $medicaments = getMEdicaments();
 
  // inclusion du fichier d'affichage des medicament de la vue
@@ -116,9 +116,9 @@ updMedicament($idEl, $nomEl, $descriptionEl,$Effet_SecondEl,$Effet_TherapEl );
 
 function supprMedicament($idE)
 {
-// suppression de l'employé : appel de la fonction delEmploye du modèle
+// suppression dmedicament : appel de la fonction delMedicament du modèle
 delMedicament($idE);
-// recherche des employés : appel de la fonction getEmployes du modèle
+// recherche medicaments : appel de la fonction getMedicament du modèle
 $medicaments = getMedicaments();
 // inclusion du fichier d'affichage des medicaments de la vue
 
@@ -148,12 +148,12 @@ function Inscription()
  $prenomEl = htmlspecialchars($_POST["prenomEl"]);
  
 
- // ajout de l'employé : appel de la fonction insEleve du modèle
+ // ajout dmedicament : appel de la fonction insEleve du modèle
  insInscriptions($usernameEl, $passwordEl, $nomEl, $prenomEl);
 
 
 
- // inclusion du fichier d'affichage des employés de la vue
+ // inclusion du fichier d'affichage medicaments de la vue
  require_once "vue/validationInscr.php";
 
 

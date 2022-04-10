@@ -14,7 +14,7 @@
     <div class="col col-lg-2">
       <form method="post" action="index.php?action=M">
         <div class="row mb-3">
-    <label for="nom" class="">ID</label>
+    <label for="nom" class="">Numéro :</label>
     <div class="col-sm-12">
       <input type="text" class="form-control" id="nom" name="idEl" value="<?php echo $activite['id']; ?>">
     </div>
@@ -22,19 +22,19 @@
   
   
   <div class="row mb-3">
-    <label for="description" class="">Nom de l'activite</label>
+    <label for="description" class="">Nom de l'activite :</label>
     <div class="col-sm-12">
       <input type="text" class="form-control" id="nom" name="nomEl" value="<?php echo $activite['nom']; ?>">
     </div>
   </div>
   <div class="row mb-3">
-    <label for="description" class="">Date</label>
+    <label for="description" class="">Date :</label>
     <div class="col-sm-12">
       <input type="text" class="form-control" id="nom" name="dateEl" value="<?php echo $activite['Date_Activite']; ?>">
     </div>
   </div>
   <div class="row mb-3">
-    <label for="description" class="">Lieu</label>
+    <label for="description" class="">Lieu :</label>
     <div class="col-sm-12">
       <input type="text" class="form-control" id="nom" name="lieuEl" value="<?php echo $activite['Lieu']; ?>">
     </div>

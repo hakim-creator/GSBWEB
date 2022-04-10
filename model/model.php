@@ -55,7 +55,7 @@ catch(Exception $e)
  }
 
 
-// fonction renvoyant l'employé correspondant à un certain code
+// fonction renvoyant l'activité correspondant à un certain code
  function getMedicament($idE)
  {
 
@@ -82,7 +82,7 @@ catch(Exception $e)
 
 
 
- // fonction mettant à jour un employé
+ // fonction mettant à jour un activteé
  function updMedicament($idEl, $nomEl, $descriptionEl, $Effet_SecondEl, $Effet_TherapEl)
  {
 
@@ -106,7 +106,7 @@ catch(Exception $e)
  }
 
 
- // fonction supprimant un employé
+ // fonction supprimant un activité
  function delMEdicament($idE)
  {
 
@@ -114,7 +114,7 @@ catch(Exception $e)
  // renvoyant une référence à la base de données
  $bd = connexionBd();
 
- // préparation de la requête de suppression dans la table employes
+ // préparation de la requête de suppression dans la table activite
  $requete = $bd->prepare("DELETE FROM medicament
  WHERE id = :idEl");
  // exécution de la requête
@@ -191,7 +191,7 @@ return $util;
 //Activiter
 
 
-// fonction ajoutant un employé
+// fonction ajoutant un activité
  function insActivites($nomEl, $dateEl, $lieuEl)
  {
 
@@ -291,7 +291,7 @@ VALUES
  }
 
 
-// fonction renvoyant l'employé correspondant à un certain code
+// fonction renvoyant l'activiter correspondant à un certain code
  function getActivite($idE)
  {
 
@@ -341,7 +341,7 @@ VALUES
  }
 
 
- // fonction supprimant un employé
+ // fonction supprimant un activiter
  function delActivite($idE)
  {
 
@@ -349,7 +349,7 @@ VALUES
  // renvoyant une référence à la base de données
  $bd = connexionBd();
 
- // préparation de la requête de suppression dans la table employes
+ // préparation de la requête de suppression dans la table activitées
  $requete = $bd->prepare("DELETE FROM activite
  WHERE id = :idEl");
  // exécution de la requête

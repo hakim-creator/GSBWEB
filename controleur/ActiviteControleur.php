@@ -2,20 +2,20 @@
 
 function chargementAjoutUtilisateur()
 {
-// inclusion du formulaire d'ajout d'un employé
+// inclusion du formulaire d'ajout d'un activité
 require_once "vue/inscription.php";
 }
 
 //Activiter
 function chargementFormAjoutActivite()
 {
-// inclusion du formulaire d'ajout d'un employé
+// inclusion du formulaire d'ajout d'un activité
 require_once "vue/formAjouterActivite.php";
 }
 
 function chargementFormParticiper()
 {
-// inclusion du formulaire d'ajout d'un employé
+// inclusion du formulaire d'ajout d'un activité
 require_once "vue/formParticiper.php";
 }
 
@@ -77,7 +77,7 @@ function ajoutActivite()
  $dateEl = htmlspecialchars($_POST["dateEl"]);
  $lieuEl = htmlspecialchars($_POST["lieuEl"]);
 
- // ajout de l'employé : appel de la fonction insEleve du modèle
+ // ajout de l'activité : appel de la fonction insEleve du modèle
  insActivites($nomEl, $dateEl, $lieuEl);
 
 // recherche des employés : appel de la fonction getActivites du modèle
