@@ -14,9 +14,15 @@ function chargementFormConnexion()
 {
 require_once "vue/connexion.php";
 }
+
+function chargementFormHome()
+{
+require_once "vue/accueil.html";
+}
+
 function chargementActivite()
 {
-   $activites=getActivites();
+   $activites = getActivites();
 // inclusion du formulaire d'ajout d'un activite
 require_once "vue/activite.php";
 }
@@ -129,9 +135,28 @@ $_SESSION = array();
 // destruction de la session
 session_destroy();
 // retour à la page de connexion
-require_once "vue/connexion.php";
+require_once "vue/accueil.html";
 }
 
+function Inscription()
+{
+// récupération des données (champs) du formulaire
 
+ $usernameEl = htmlspecialchars($_POST["usernameEl"]);
+ $passwordEl = htmlspecialchars($_POST["passwordEl"]);
+ $nomEl = htmlspecialchars($_POST["nomEl"]);
+ $prenomEl = htmlspecialchars($_POST["prenomEl"]);
+ 
+
+ // ajout de l'employé : appel de la fonction insEleve du modèle
+ insInscriptions($usernameEl, $passwordEl, $nomEl, $prenomEl);
+
+
+
+ // inclusion du fichier d'affichage des employés de la vue
+ require_once "vue/validationInscr.php";
+
+
+}
 
 ?>

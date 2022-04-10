@@ -30,7 +30,7 @@
           <a class="nav-link active" aria-current="medicament" href="#">Médicament</a>
         </li>
         <li class="nav-item">
-          <?php if($_SESSION['typeUtil'] == "A") { ?>
+          <?php if($_SESSION['typeUtil'] == "") { ?>
                <a class="nav-link active"
                href="index.php?action=AA">
                Activité</a>
@@ -41,6 +41,8 @@
     </div>
   </div>
 </nav>
+
+<h4>Bienvenue <?php echo $_SESSION['nomComp']; ?> <?php echo $_SESSION["prenomComp"]; ?></h4>
 
 
 <table class="table">

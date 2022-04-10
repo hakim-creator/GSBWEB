@@ -1,6 +1,10 @@
 <?php 
 
-
+function chargementAjoutUtilisateur()
+{
+// inclusion du formulaire d'ajout d'un employé
+require_once "vue/inscription.php";
+}
 
 //Activiter
 function chargementFormAjoutActivite()
@@ -8,11 +12,7 @@ function chargementFormAjoutActivite()
 // inclusion du formulaire d'ajout d'un employé
 require_once "vue/formAjouterActivite.php";
 }
-function chargementAjoutUtilisateur()
-{
-// inclusion du formulaire d'ajout d'un employé
-require_once "vue/inscription.html";
-}
+
 function chargementFormParticiper()
 {
 // inclusion du formulaire d'ajout d'un employé
@@ -81,10 +81,32 @@ function ajoutActivite()
  insActivites($nomEl, $dateEl, $lieuEl);
 
 // recherche des employés : appel de la fonction getActivites du modèle
- $eleves = getActivites();
+ $activites = getActivites();
 
  // inclusion du fichier d'affichage des employés de la vue
- require_once "vue/activite.php";
+ require_once "vue/formAjouterActivite.php";
+
+
+}
+
+function participerActivite()
+{
+// récupération des données (champs) du formulaire
+
+ $nomEl = htmlspecialchars($_POST["nomEl"]);
+ $prenomEl = htmlspecialchars($_POST["prenomEl"]);
+ $activiteEl = htmlspecialchars($_POST["activiteEl"]);
+ $dateEl = htmlspecialchars($_POST["dateEl"]);
+ $lieuEl = htmlspecialchars($_POST["lieuEl"]);
+
+ //  appel de la fonction insEleve du modèle
+ insParticipes($nomEl,$prenomEl,$activiteEl, $dateEl, $lieuEl);
+
+// recherche des employés : appel de la fonction getActivites du modèle
+ $activites = getActivites();
+
+ // inclusion du fichier d'affichage des employés de la vue
+ require_once "vue/validationPart.php";
 
 
 }
@@ -103,13 +125,14 @@ $activite = getActivite($idE);
 // inclusion du formulaire de modification (vue)
 require_once "vue/formModifActivite.php";
 }
-//if (!empty(htmlspecialchars($_POST["parti"]))) {
-	// recherche de l'activite correspondant à ce code
-// via la fonction getActivite du modèle
-//$activite = getActivite($idE);
-// inclusion du formulaire de de participation (vue)
-//require_once "vue/formModifParticiper.php";
-//}
+else
+   if (!empty(htmlspecialchars($_POST["part"]))) {
+   	// recherche de l'activite correspondant à ce code
+   // via la fonction getActivite du modèle
+   $activite = getActivite($idE);
+   // inclusion du formulaire de de participation (vue)
+   require_once "vue/formParticiper.php";
+   }
 else
 // appel de la fonction contrôleur de suppression
 supprActivite($idE);
@@ -143,7 +166,7 @@ delActivite($idE);
 $activites = getActivites();
 // inclusion du fichier d'affichage des medicaments de la vue
 
-require_once "vue/activite.php";
+require_once "vue/validationSup.php";
 }
 
 

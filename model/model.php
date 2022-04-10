@@ -199,8 +199,8 @@ return $util;
  // renvoyant une référence à la base de données
  $bd = connexionBd();
 
- // préparation de la requête d'insertion dans la table eleves
- $requete = $bd->prepare("INSERT INTO eleves(nom, Date_Activite, Lieu)
+ // préparation de la requête d'insertion dans la table activite
+ $requete = $bd->prepare("INSERT INTO activite(nom, Date_Activite, Lieu)
 VALUES
 (:nomEle, :dateEle, :LieuEle)");
 
@@ -213,6 +213,53 @@ VALUES
 
  }
 
+  function insInscriptions($usernameEl, $passwordEl, $nomEl, $prenomEl)
+ {
+
+ // appel de la fonction de connexion à la base de données
+ // renvoyant une référence à la base de données
+ $bd = connexionBd();
+
+$mdpChiffre = hash("sha256", $passwordEl);
+ // préparation de la requête d'insertion dans la table activite
+ $requete = $bd->prepare("INSERT INTO utilisateurs(nomUtilisateur, motDePasse, nomComplet, prenomComplet)
+VALUES
+(:nomUtilisateurEle, :motDePasseEle, :nomCompletEle, :prenomCompletEle)");
+
+
+ // exécution de la requête
+ $bd->query("SET NAMES utf8");
+ $requete->execute(['nomUtilisateurEle' => $usernameEl,
+ 'motDePasseEle' => $mdpChiffre,
+ 'nomCompletEle' => $nomEl,
+ 'prenomCompletEle' => $prenomEl]);
+
+ }
+
+
+// fonction participer 
+ function insParticipes($nomEl,$prenomEl,$activiteEl, $dateEl, $lieuEl)
+ {
+
+ // appel de la fonction de connexion à la base de données
+ // renvoyant une référence à la base de données
+ $bd = connexionBd();
+
+ // préparation de la requête d'insertion dans la table activite
+ $requete = $bd->prepare("INSERT INTO participer(nom, prenom, activite, date_activite, Lieu)
+VALUES
+(:nomEle, :prenomEle, :activiteEle, :dateEle, :LieuEle)");
+
+
+ // exécution de la requête
+ $bd->query("SET NAMES utf8");
+ $requete->execute(['nomEle' => $nomEl,
+ 'prenomEle' => $prenomEl,
+ 'activiteEle' => $activiteEl,
+ 'dateEle' => $dateEl,
+ 'LieuEle' => $lieuEl]);
+
+ }
 
 // fonction renvoyant le tableau des activites
  function getActivites()

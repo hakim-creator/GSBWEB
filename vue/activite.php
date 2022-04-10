@@ -27,7 +27,7 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="medicament" href="#">Médicament</a>
+          <a class="nav-link active" aria-current="medicament" href="index.php?action=MEC">Médicament</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="activite" href="#">Activite</a>
@@ -47,7 +47,7 @@
       <th scope="col">Nom</th>
       <th scope="col">Date</th>
       <th scope="col">Lieu</th>
-      
+      <th scope="col">Participer</th>
       <th scope="col">Modif</th>
       <th scope="col">Suprimer</th>
     </tr>
@@ -70,7 +70,8 @@
                    <td><?php echo $activite["Lieu"];?></td>
                    
                    
-                  
+                  <td><input type="submit" name="part"
+                   value="Participer" /></td>
                    <td><input type="submit" name="modif"
                    value="Modifier" /></td>
                    <td><input type="button" value="Supprimer"
@@ -86,7 +87,7 @@
 
 <!-- lien pour ajouter un elève -->
           
-<a href="index.php?action=FA">Ajouter un elève</a>
+<a href="index.php?action=FA">Ajouter un activiter</a>
 <br /><br />
 <a href="index.php?action=D">Se déconnecter</a>
 <script type="text/javascript" src="js/bootstrap.js"></script>

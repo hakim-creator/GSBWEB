@@ -12,12 +12,8 @@
   <div class="container">
   <div class="row justify-content-md-center">
     <div class="col col-lg-2">
-      <form action="index.php?action=M">
-        <div class="row mb-3">
-    <label for="nom" class="">ID</label>
-    <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="idEl" value="<?php echo $activite['id']; ?>">
-    </div>
+      <form method="post" action="index.php?action=P">
+        
         <div class="row mb-3">
     <label for="nom" class="">Nom</label>
     <div class="col-sm-12">
@@ -27,14 +23,14 @@
   <div class="row mb-3">
     <label for="description" class="">Prenom</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="description">
+      <input type="text" class="form-control" name="prenomEl" id="prenom">
     </div>
   </div>
   
   <div class="row mb-3">
     <label for="description" class="">Nom de l'activite</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="nomEl" value="<?php echo $activite['nom']; ?>">
+      <input type="text" class="form-control" id="nom" name="activiteEl" value="<?php echo $activite['nom']; ?>">
     </div>
   </div>
   <div class="row mb-3">
@@ -46,7 +42,7 @@
   <div class="row mb-3">
     <label for="description" class="">Lieu</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="lieuEl" value="<?php echo $activite['lieu']; ?>">
+      <input type="text" class="form-control" id="nom" name="lieuEl" value="<?php echo $activite['Lieu']; ?>">
     </div>
   </div>
        

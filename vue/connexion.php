@@ -34,6 +34,7 @@ id="imdp" />
 <br />
 </form>
 </div>
+<a href="inscription.php"></a>
 
 
 <script type="text/javascript" src="js/bootstrap.js"></script>

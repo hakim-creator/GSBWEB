@@ -7,7 +7,13 @@ require_once "controleur/ActiviteControleur.php";
 // lancement du bon contrôleur
 if ( empty($_GET["action"]) )
 // cas de la consultation : écran de départ
+chargementFormHome();
+else
+if ( $_GET["action"] == 'C')
 chargementFormConnexion();
+else
+if ( $_GET["action"] == 'IS')
+chargementAjoutUtilisateur();
 else
 if ( $_GET["action"] == 'FA')
 // cas du formulaire d'ajout
@@ -30,6 +36,9 @@ if ( $_GET["action"] == 'ME')
 // cas de l'aiguillage entre mise à jour et suppression
 
 chargementMedicament();
+else
+if ( $_GET["action"] == 'MEC')
+consultMedicaments();
 //else
 //if ( $_GET["action"] == 'MM')
 // cas de la mise à jour
@@ -38,7 +47,7 @@ else
 if ( $_GET["action"] == 'S')
 // cas de la suppression
 supprMedicament();
-
+else
 if ( !isset($_GET["action"]) )
 chargementFormConnexion();
 else
@@ -51,22 +60,26 @@ else
 if ($_GET["action"] == 'D')
 deconnexion();
 //Activite
+else
 if ( $_GET["action"] == 'MSA')
 // cas de l'aiguillage entre mise à jour et suppression
 
 aiguillageActivite();
+else
 if ( $_GET["action"] == 'M')
 // cas de la mise à jour
 modifActivite();
 else
+if ( $_GET["action"] == 'P')
+// cas de la mise à jour
+participerActivite();
+else
 if ( $_GET["action"] == 'SA')
 // cas de la suppression
 supprActivite();
-//else
-//if ( $_GET["action"] == 'FP')
-// cas participation
-//chargementFormParticiper();
+
+else
 if ( $_GET["action"] == 'I')
 // cas de la suppression
-chargementAjoutUtilisateur();
+Inscription();
 ?>
