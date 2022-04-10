@@ -49,8 +49,8 @@
       <th scope="col">Numéro</th>
       <th scope="col">Nom</th>
       <th scope="col">Description</th>
-      <th scope="col">Modifier</th>
-      <th scope="col">Suprimer</th>
+      <th scope="col">Effet sécondaire</th>
+      <th scope="col">Effet thérapeutique</th>
     </tr>
   </thead>
   
@@ -70,10 +70,8 @@
                    <td><?php echo $medicament["Description"];?></td>
                    
                   
-                   <td><input type="submit" name="modif"
-                   value="Modifier" /></td>
-                   <td><input type="button" value="Supprimer"
-                   onClick="confirmSuppr(form);" />
+                   <td><?php echo $medicament["Effet_Second"];?></td>
+                   <td><?php echo $medicament["Effet_Therap"];?></td>
                   
                    </td>
                    </tr>

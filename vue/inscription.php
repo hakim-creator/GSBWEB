@@ -1,57 +1,57 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>GSB</title>
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
-</head>
-<body>
+<html lang="fr">
+   <head>
+   <meta charset="utf-8">
+   <link rel="stylesheet"
+   href="vue/bootstrap.min.css" />
+   <title>
+   Saisie des informations d'un nouvel utilisateur
+   </title>
+   </head>
+ <body>
 
-  <div class="container">
-  <div class="row justify-content-md-center">
-    <div class="col col-lg-2">
-      <form>
-        <div class="row mb-3">
-    <label for="inputEmail3" class="">Nom</label>
-    <div class="col-sm-12">
-      <input type="text" class="form-control" id="inputEmail3">
-    </div>
-  </div>
-  <div class="row mb-3">
-    <label for="inputEmail3" class="">Prénom</label>
-    <div class="col-sm-12">
-      <input type="text" class="form-control" id="inputEmail3">
-    </div>
-  </div>
-        <div class="row mb-3">
-    <label for="inputEmail3" class="">Nom d'utilisateur</label>
-    <div class="col-sm-12">
-      <input type="text" class="form-control" id="inputEmail3">
-    </div>
-  </div>
-  <div class="row mb-3">
-    <label for="inputEmail3" class="">Email</label>
-    <div class="col-sm-12">
-      <input type="email" class="form-control" id="inputEmail3">
-    </div>
-  </div>
-  <div class="row mb-3">
-    <label for="inputPassword3" class="">Mot de passe</label>
-    <div class="col-sm-12">
-      <input type="password" class="form-control" id="inputPassword3">
-    </div>
-  </div>
-  
-  <button type="submit" class="btn btn-primary">Inscription</button>
-</form>
-    </div>
-  </div>
-</div>
+     <div class="container">
+     <h1>Inscription</h1><br />
+     <form method="post"
+     action="index.php?action=I">
+    
+     <p>
+     <label for="nomE">username</label><br />
+     <input type="text" name="nomEl" id="nomUtilEl" />
+     </p>
+     <p>
+     <label for="prenomE">Mot de passe</label><br />
+     <input type="text" name="prenomEl" id="motDePasseEl" />
+     </p>
 
+     <p>
+     <label for="classeE">Nom</label><br />
+     <input type="text" name="classeEl" id="nomEl"/>
+     </p>
 
-<script type="text/javascript" src="js/bootstrap.js"></script>
+     <p>
+     <label for="anneeE">Prenom</label><br />
+     <input type="text" name="anneeEl" id="prenomEl" />
+     </p>
+     <p>
+     <label for="anneeE">Type</label><br />
+     <input type="text" name="anneeEl" id="typeEl" />
+     </p>
+     <br /><br />
+     <p>
+     <input type="submit" value="Valider la saisie" />
+     <input type="reset" value="Effacer la saisie" />
+     <p><a href="inscription.php"></a></p>
+     </p>
+     <br />
 
-</body>
+     </form>
+
+     <p>
+     <a href="index.php">
+     Annuler : Retour au menu des elèves</a>
+     </p>
+
+     </div>
+ </body>
 </html>

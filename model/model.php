@@ -83,22 +83,24 @@ catch(Exception $e)
 
 
  // fonction mettant à jour un employé
- function updMedicament($idEl, $nomEl, $descriptionEl)
+ function updMedicament($idEl, $nomEl, $descriptionEl, $Effet_SecondEl, $Effet_TherapEl)
  {
 
  // appel de la fonction de connexion à la base de données
  // renvoyant une référence à la base de données
  $bd = connexionBd();
 
- // préparation de la requête de mise à jour dans la table employes
+ // préparation de la requête de mise à jour dans la table activite
  $requete = $bd->prepare("UPDATE medicament
- SET nom = :nomM, Description = :descriptionM
+ SET nom = :nomM, Description = :descriptionM, Effet_Second = :Effet_SecondM, Effet_Therap = :Effet_TherapM
  WHERE id = :idEleve");
 
  // exécution de la requête
  $bd->query("SET NAMES utf8");
  $requete->execute(['nomM' => $nomEl,
  'descriptionM' => $descriptionEl,
+ 'Effet_SecondM' => $Effet_SecondEl,
+ 'Effet_TherapM' => $Effet_TherapEl,
  'idEleve' => $idEl]);
 
  }
@@ -182,5 +184,133 @@ $requete->execute(['nomUt' => $nomU,
 $util = $requete->fetch();
 return $util;
 }
+
+
+
+
+//Activiter
+
+
+// fonction ajoutant un employé
+ function insActivites($nomEl, $dateEl, $lieuEl)
+ {
+
+ // appel de la fonction de connexion à la base de données
+ // renvoyant une référence à la base de données
+ $bd = connexionBd();
+
+ // préparation de la requête d'insertion dans la table eleves
+ $requete = $bd->prepare("INSERT INTO eleves(nom, Date_Activite, Lieu)
+VALUES
+(:nomEle, :dateEle, :LieuEle)");
+
+
+ // exécution de la requête
+ $bd->query("SET NAMES utf8");
+ $requete->execute(['nomEle' => $nomEl,
+ 'dateEle' => $dateEl,
+ 'LieuEle' => $lieuEl]);
+
+ }
+
+
+// fonction renvoyant le tableau des activites
+ function getActivites()
+ {
+
+ // appel de la fonction de connexion à la base de données
+ // renvoyant une référence à la base de données
+ $bd = connexionBd();
+
+ // constitution de la requête de sélection dans la table activite
+ $requete = "SELECT * FROM activite";
+
+ // exécution de la requête et renvoi du résultat
+ $bd->query("SET NAMES utf8");
+ $resultat = $bd->query($requete);
+ // initialisation du tableau à vide
+ $activ = array();
+ // boucle de balayage du résultat de la requête
+
+ // et constitution du tableau PHP $activ
+ while ( $ligne = $resultat->fetch() )
+ {
+ $activ[] = $ligne;
+ }
+ // fermeture du curseur relatif au résultat
+ $resultat->closeCursor();
+ return $activ;
+
+ }
+
+
+// fonction renvoyant l'employé correspondant à un certain code
+ function getActivite($idE)
+ {
+
+ // appel de la fonction de connexion à la base de données
+ // renvoyant une référence à la base de données
+ $bd = connexionBd();
+
+ // préparation de la requête de sélection dans la table eleves
+ $requete = $bd->prepare("SELECT * FROM activite
+ WHERE id = :idEleve");
+ // exécution de la requête
+ $bd->query("SET NAMES utf8");
+ $requete->execute(['idEleve' => $idE]);
+
+ // récupération de la ligne du résultat
+ $activit = $requete->fetch();
+
+ return $activit;
+
+ }
+
+ 
+
+
+
+
+ // fonction mettant à jour un activite
+ function updActivite($idEl, $nomEl, $dateEl,$lieuEl)
+ {
+
+ // appel de la fonction de connexion à la base de données
+ // renvoyant une référence à la base de données
+ $bd = connexionBd();
+
+ // préparation de la requête de mise à jour dans la table activite
+ $requete = $bd->prepare("UPDATE activite
+ SET nom = :nomM, Date_Activite = :dateM, Lieu = :lieuM
+ WHERE id = :idEleve");
+
+ // exécution de la requête
+ $bd->query("SET NAMES utf8");
+ $requete->execute(['nomM' => $nomEl,
+ 'dateM' => $dateEl,
+ 'lieuM' => $lieuEl,
+ 'idEleve' => $idEl]);
+
+ }
+
+
+ // fonction supprimant un employé
+ function delActivite($idE)
+ {
+
+ // appel de la fonction de connexion à la base de données
+ // renvoyant une référence à la base de données
+ $bd = connexionBd();
+
+ // préparation de la requête de suppression dans la table employes
+ $requete = $bd->prepare("DELETE FROM activite
+ WHERE id = :idEl");
+ // exécution de la requête
+ $bd->query("SET NAMES utf8");
+ $requete->execute(['idEl' => $idE]);
+ 
+
+ }
+
 
 ?>

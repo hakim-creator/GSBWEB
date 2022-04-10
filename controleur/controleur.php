@@ -9,13 +9,15 @@ function consultMedicaments()
  require_once "vue/medicament.php";
 }
 
+
 function chargementFormConnexion()
 {
 require_once "vue/connexion.php";
 }
 function chargementActivite()
 {
-// inclusion du formulaire d'ajout d'un employé
+   $activites=getActivites();
+// inclusion du formulaire d'ajout d'un activite
 require_once "vue/activite.php";
 }
 function chargementMedicament()
@@ -91,11 +93,13 @@ function modifMedicament()
  $idEl = htmlspecialchars($_POST["idEl"]);
  $nomEl = htmlspecialchars($_POST["nomEl"]);
  $descriptionEl = htmlspecialchars($_POST["descriptionEl"]);
+ $Effet_SecondEl = htmlspecialchars($_POST["Effet_SecondEl"]);
+ $Effet_TherapEl = htmlspecialchars($_POST["Effet_TherapEl"]);
  
  // mise à jour de l'employé : appel de la fonction updEmploye 
 
  // du modèle
-updMedicament($idEl, $nomEl, $descriptionEl);
+updMedicament($idEl, $nomEl, $descriptionEl,$Effet_SecondEl,$Effet_TherapEl );
 
 // recherche des employés : appel de la fonction getEmployes du modèle
  $medicaments = getMEdicaments();
@@ -127,6 +131,7 @@ session_destroy();
 // retour à la page de connexion
 require_once "vue/connexion.php";
 }
+
 
 
 ?>
