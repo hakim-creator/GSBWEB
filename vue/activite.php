@@ -51,7 +51,7 @@ session_start();
       <th scope="col">Date</th>
       <th scope="col">Lieu</th>
       <th scope="col">Participer</th>
-      <th scope="col">Modif</th>
+      <!--<th scope="col">Modif</th>-->
       <th scope="col">Suprimer</th>
     </tr>
   </thead>
@@ -75,9 +75,9 @@ session_start();
                    
                   <td><input type="submit" name="part"
                    value="Participer" /></td>
-                   <td><input type="submit" name="modif"
-                   value="Modifier" /></td>
-                   <td><input type="button" value="Supprimer"
+                   <!--<td><input type="submit" name="modif"
+                   value="Modifier" /></td>-->
+                   <td><input type="button" name="sup" value="Supprimer"
                    onClick="confirmSuppr(form);" />
                   
                    </td>

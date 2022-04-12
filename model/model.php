@@ -360,4 +360,29 @@ VALUES
  }
 
 
+
+//Service Web
+function getWebActivite(){
+
+
+ $url = "https://localhost:44394/WebServiceGsb.asmx?WSDL";
+
+ $options = array(
+    'cache_wsdl'=> 0,
+    'trace'=> 1,
+    'stream_context' => stream_context_create(array(
+    'ssl'=> array(
+        'verify_peer' => false,
+        'verify_peer_name'=> false,
+        'allow_self_signed'=> true
+    )
+)));
+
+ $client = new SoapClient($url, $options);
+
+ $res = $client->getActivite();
+ $lesRes = $res->resultat->string;
+
+ echo $lesRes[0];
+}
 ?>
