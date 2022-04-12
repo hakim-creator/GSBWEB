@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,6 +6,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>GSB</title>
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+
+  <script>
+           function confirmSuppr(form)
+           {
+           if (confirm("Supprimer avec identifiant " +
+           form.codeElevAction.value))
+           // suppression confirmée
+           form.submit();
+           }
+         </script>
 </head>
 <body>
 
@@ -17,10 +28,14 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="medicament" href="medicament.php">Médicament</a>
+          <a class="nav-link active" aria-current="medicament" href="#">Médicament</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="activite" href="activite.php">Activité</a>
+          <?php if($_SESSION['typeUtil'] == "") { ?>
+               <a class="nav-link active"
+               href="index.php?action=AA">
+               Activité</a>
+               <?php } ?>
         </li>
 
       </ul>
@@ -29,68 +44,45 @@
 </nav>
 
 <h4>Bienvenue <?php echo $_SESSION['nomComp']; ?> <?php echo $_SESSION["prenomComp"]; ?></h4>
-        
-               <h1>Liste des elèves</h1><br />
-               <!-- mise en place du tableau -->
 
-                 <table class="table table-bordered table-striped">
-                 <!-- mise en place de la ligne de titre -->
-                   <tr>
-                   <th>ID</th>
-                   <th>Nom</th>
-                   <th>Prénom</th>
-                   <th>Année de naissance</th>
-                   <th>Classe</th>
-                   <?php if($_SESSION['typeUtil'] == "A") { ?>
-                   <th>Action 1</th>
-                   <th>Action 2</th>
-                  <?php } ?>
-                   </tr>
-                   <!-- affichage de chacune des lignes du tableau -->
-                   <?php foreach ($eleves as $eleve): ?>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Numéro</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Description</th>
+      <th scope="col">Effet sécondaire</th>
+      <th scope="col">Effet thérapeutique</th>
+    </tr>
+  </thead>
+  
+
+            <?php foreach ($medicaments as $medicament): ?>
                   
                    <!-- mise en place d'un formulaire -->
-                   <form method="post"
+                   <form method="POST"
                    action="index.php?action=MS">
-                   <!-- champ caché pour le code de l'eleve de la ligne -->
-                   <input type="hidden" name="codeElevAction" value="<?php echo $eleve['id']; ?>" />
+                   <!-- champ caché pour le code de medicament de la ligne -->
+                   <input type="hidden" name="codeElevAction" value="<?php echo $medicament['id']; ?>" />
                    <!-- affichage de la ligne courante -->
 
                    <tr>
-                   <td><?php echo $eleve["id"]; ?></td>
-                   <td><?php echo $eleve["nom"]; ?></td>
-                   <td><?php echo $eleve["prenom"];?></td>
-                   <td><?php echo $eleve["anneeNaissance"];?></td>
-                   <td><?php echo $eleve["classe"];?></td>
-                   <?php if($_SESSION['typeUtil'] == "A") { ?>
-                   <td><input type="submit" name="modif"
-                   value="Modifier" /></td>
-                   <td><input type="button" value="Supprimer"
-                   onClick="confirmSuppr(form);" />
-                   <?php } ?>
+                   <td><?php echo $medicament["id"]; ?></td>
+                   <td><?php echo $medicament["nom"]; ?></td>
+                   <td><?php echo $medicament["Description"];?></td>
+                   
+                  
+                   <td><?php echo $medicament["Effet_Second"];?></td>
+                   <td><?php echo $medicament["Effet_Therap"];?></td>
+                  
                    </td>
                    </tr>
                    </form>
 
-                   <?php endforeach; ?>
-                   <!-- fin du tableau -->
-                 </table>
-
-               <br /><br />
-               <!-- lien pour ajouter un employé -->
-               <?php if($_SESSION['typeUtil'] == "A") { ?>
-               <a
-               href="index.php?action=FA">
-               Ajouter un elève</a>
-               <?php } ?>
-
-                 <!-- lien pour afficher un eleve -->
-               <a
-               href="../controleur/chargementListeClasses.php">
-               Rechercher par classe</a>
-
-               <a href="index.php?action=D">Se déconnecter</a>
-
+            <?php endforeach; ?>
+</table>
+<a href="index.php?action=D">Se déconnecter</a>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 
 </body>
