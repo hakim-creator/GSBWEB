@@ -1,6 +1,7 @@
 <?php
 function consultMedicaments()
 {
+   session_start();
 // recherche des medicaments : appel de la fonction getMedicaments du modèle
  $medicaments = getMedicaments();
 
