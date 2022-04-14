@@ -49,10 +49,11 @@
   </div>
 </nav>
 
+<br></br>
 <h4>Bienvenue <?php echo $_SESSION['nomComp']; ?> <?php echo $_SESSION["prenomComp"]; ?></h4>
+<br></br>
 
-
-<table class="table">
+<table class="table table-bordered">
   <thead>
     <tr>
       <th scope="col">Numéro</th>
@@ -60,6 +61,8 @@
       <th scope="col">Description</th>
       <th scope="col">Effet sécondaire</th>
       <th scope="col">Effet thérapeutique</th>
+      <th scope="col">Peu intéragire</th>
+      <th scope="col">Ne peut pas intéragire</th>
     </tr>
   </thead>
   
@@ -81,6 +84,8 @@
                   
                    <td><?php echo $medicament["Effet_Second"];?></td>
                    <td><?php echo $medicament["Effet_Therap"];?></td>
+                   <td><?php echo $medicament["positive"];?></td>
+                   <td><?php echo $medicament["negative"];?></td>
                   
                    </td>
                    </tr>
@@ -90,7 +95,7 @@
 </table>
 
 <?php if($_SESSION['typeUtil'] == "A") { ?> 
-<a href="index.php?action=FM">Ajouter un médicament</a>
+<a href="index.php?action=FM" class="nav-link active">Ajouter un médicament</a>
 <?php } ?>
 <br></br>
 

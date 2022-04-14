@@ -44,6 +44,18 @@
       <input type="text" class="form-control" id="nom" name="therapElM" value="">
     </div>
   </div>
+  <div class="row mb-3">
+    <label for="description" class="">Médicament qui peuve intéragir</label>
+    <div class="col-sm-12">
+      <input type="text" class="form-control" id="nom" name="positiveElM" value="">
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="description" class="">Médicament qui ne peut pas intéragir</label>
+    <div class="col-sm-12">
+      <input type="text" class="form-control" id="nom" name="negativeElM" value="">
+    </div>
+  </div>
        
   
   <p>

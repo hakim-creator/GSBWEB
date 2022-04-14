@@ -13,36 +13,47 @@ session_start();
 <body>
 
   <div class="container">
+    <div class="row justify-content-md-center">
+    <div class="col col-lg-3">
+
   <form method="post"
 action="index.php?action=RU">
-<p>
+
+<div class="row mb-3">
+
 <label for="inom">Votre nom
 d'utilisateur</label><br />
-<input type="text" name="nomU" id="inom"
+<div class="col-sm-12">
+<input type="text" class="form-control" name="nomU" id="inom"
 value="<?php
 if (isset($_SESSION["nomUtil"]))
 echo $_SESSION["nomUtil"];
 ?>"
 />
-</p>
+
+
+</div>
+</div>
 <p>
 <label for="imdp">Votre mot de passe</label><br />
-<input type="password" name="motDePasseU"
+<input type="password" class="form-control" name="motDePasseU"
 id="imdp" />
 </p>
 <br /><br />
 <p>
-<input type="submit" value="Se connecter" />
+<input type="submit" value="Se connecter" class="btn btn-outline-dark" />
 </p>
 <br />
 </form>
-</div>
-<a href="inscription.php"></a>
-
 <p>
-     <a href="index.php?action=IS">
+     <a href="index.php?action=IS" class="nav-link active">
      Pas encore enregistrer ? S'inscrire</a>
  </p>
+</div>
+</div>
+</div>
+
+
 
 
 <script type="text/javascript" src="js/bootstrap.js"></script>

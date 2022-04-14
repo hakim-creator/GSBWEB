@@ -110,8 +110,10 @@ function ajoutMedicament()
  $desElM = htmlspecialchars($_POST["desElM"]);
  $therapElM = htmlspecialchars($_POST["therapElM"]);
  $secondElM = htmlspecialchars($_POST["secondElM"]);
+ $positiveElM = htmlspecialchars($_POST["positiveElM"]);
+ $negativeElM = htmlspecialchars($_POST["negativeElM"]);
  // ajout de l'activité : appel de la fonction insEleve du modèle
- insMedicaments($nomElM, $desElM, $secondElM ,$therapElM);
+ insMedicaments($nomElM, $desElM, $secondElM ,$therapElM , $positiveElM, $negativeElM);
 
 // recherche des employés : appel de la fonction getActivites du modèle
  $medicaments = getMedicaments();

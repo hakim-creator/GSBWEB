@@ -14,46 +14,48 @@
 
      <div class="container">
       <div class="row justify-content-md-center">
-         <div class="col col-lg-2">
+    <div class="col col-lg-3">
      <h1>Inscription</h1><br />
      <form method="post" action="index.php?action=I">
     
-     <p>
+     <div>
      <label for="nomE">Nom d'utilisateur</label><br />
-     <input type="text" name="usernameEl" id="nomUtilEl" />
-     </p>
-     <p>
+     <input type="text" name="usernameEl" class="form-control" id="nomUtilEl" required />
+     </div>
+     <div>
      <label for="prenomE">Mot de passe</label><br />
-     <input type="password" name="passwordEl" id="motDePasseEl" />
-     </p>
+     <input type="password" name="passwordEl" class="form-control" id="motDePasseEl"  required />
+     </div>
 
-     <p>
+     <div>
      <label for="classeE">Nom</label><br />
-     <input type="text" name="nomEl" id="nomEl"/>
-     </p>
+     <input type="text" name="nomEl" class="form-control" id="nomEl" required />
+     </div>
 
-     <p>
+     <div>
      <label for="anneeE">Prenom</label><br />
-     <input type="text" name="prenomEl" id="prenomEl" />
-     </p>
+     <input type="text" name="prenomEl" class="form-control" id="prenomEl" required />
+     </div>
      
      <br /><br />
-     <p>
-     <input type="submit" class="btn btn-outline-dark" value="Valider la saisie" />
-     </p>
+     <div>
+     <input type="submit" class="btn btn-outline-dark" value="S'inscrire" required />
+     </div>
      <br />
 
      </form>
 
-     <p>
-     <a href="index.php?action=C">
-     Deja enregistrer ? Connectez vous</a>
-     </p>
+     <div>
+     <a href="index.php?action=C" class="nav-link active" aria-current="activite">
+     Déja enregistrer ? Connectez vous</a>
+     </div>
 
-     <p>
-     <a href="index.php">
-     Retour</a>
-     </p>
+     <div>
+     
+     <a href="index.php" class="nav-link active">
+     Retour a l'accueil</a>
+     
+     </div>
 
      </div>
   </div>

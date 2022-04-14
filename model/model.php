@@ -77,7 +77,7 @@ catch(Exception $e)
 
  }
 
- function insMedicaments($nomElM, $desElM, $secondElM, $therapElM)
+ function insMedicaments($nomElM, $desElM, $secondElM, $therapElM, $positiveElM, $negativeElM)
  {
 
  // appel de la fonction de connexion à la base de données
@@ -85,9 +85,9 @@ catch(Exception $e)
  $bd = connexionBd();
 
  // préparation de la requête d'insertion dans la table eleves
- $requete = $bd->prepare("INSERT INTO medicament(nom, Description, Effet_Second, Effet_Therap)
+ $requete = $bd->prepare("INSERT INTO medicament(nom, Description, Effet_Second, Effet_Therap, positive, negative)
 VALUES
-(:nomEle, :desEle, :secondEle, :therapEle)");
+(:nomEle, :desEle, :secondEle, :therapEle, :positiveEle, :negativeEle)");
 
 
  // exécution de la requête
@@ -95,7 +95,9 @@ VALUES
  $requete->execute(['nomEle' => $nomElM,
  'desEle' => $desElM,
  'secondEle' => $secondElM,
- 'therapEle' => $therapElM]);
+ 'therapEle' => $therapElM,
+'positiveEle' => $positiveElM,
+'negativeEle' => $negativeElM]);
 }
 
 

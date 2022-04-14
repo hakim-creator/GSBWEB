@@ -48,10 +48,10 @@ session_start();
 </nav>
 
 
-  
+  <br></br>
 
 
-<table class="table">
+<table class="table table-bordered">
   <thead>
     <tr>
       <th scope="col">Numéro</th>
@@ -102,7 +102,7 @@ session_start();
 
 <!-- lien pour ajouter un elève -->
  <?php if($_SESSION['typeUtil'] == "A") { ?>         
-<a href="index.php?action=FA">Ajouter un activiter</a>
+<a href="index.php?action=FA" class="nav-link active">Ajouter un activiter</a>
 <?php } ?>
 <br /><br />
 
