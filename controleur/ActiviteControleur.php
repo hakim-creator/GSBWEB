@@ -126,7 +126,7 @@ $idE = htmlspecialchars($_POST["codeElevAction"]);
 //require_once "vue/formModifActivite.php";
 //}
 //else
-   if (!empty(htmlspecialchars($_POST["part"]))) {
+   if (isset(($_POST["part"]))) {
    	// recherche de l'activite correspondant à ce code
    // via la fonction getActivite du modèle
    $activite = getActivite($idE);

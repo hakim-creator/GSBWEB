@@ -15,31 +15,35 @@
 		 <div class="container">
   <div class="row justify-content-md-center">
     <div class="col col-lg-2">
-      <form method="post" action="index.php?action=A">
+      <form method="post" action="index.php?action=AM">
        
         
   
   
   <div class="row mb-3">
-    <label for="description" class="">Nom de l'activite</label>
+    <label for="description" class="">Nom du médicament</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="nomEl" value="" required>
+      <input type="text" class="form-control" id="nom" name="nomElM" value="">
     </div>
   </div>
   <div class="row mb-3">
-    <label for="description" class="">Date</label>
+    <label for="description" class="">Description</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="dateEl" value="" placeholder="JJ/MM/AAAA" required>
+      <input type="text" class="form-control" id="nom" name="desElM" value="">
     </div>
   </div>
   <div class="row mb-3">
-    <label for="description" class="">Lieu</label>
+    <label for="description" class="">Effet sécondaire</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="lieuEl" value="" placeholder="" required>
+      <input type="text" class="form-control" id="nom" name="secondElM" value="">
     </div>
   </div>
-  
-
+  <div class="row mb-3">
+    <label for="description" class="">Effet thérapeutique</label>
+    <div class="col-sm-12">
+      <input type="text" class="form-control" id="nom" name="therapElM" value="">
+    </div>
+  </div>
        
   
   <p>
@@ -50,8 +54,8 @@ value="Valider les modifications" class="btn btn-outline-dark"/>
 
 <br></br>
 		<p>
-		 <a href="index.php?action=AA">
-		 Annuler : Retour au menu des activités</a>
+		 <a href="index.php?action=ME">
+		 Annuler : Retour au menu des medicament</a>
 		 </p>
     </div>
   </div>

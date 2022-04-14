@@ -29,8 +29,16 @@ require_once "vue/activite.php";
 }
 function chargementMedicament()
 {
+   session_start();
+   $medicaments = getMedicaments();
 // inclusion du formulaire d'ajout d'un Medicament
 require_once "vue/medicament.php";
+}
+
+function chargementFormAjoutMedicament()
+{
+
+   require_once "vue/formAjouterMedicament.php";
 }
 
 function rechercheUtilisateur()
@@ -92,6 +100,26 @@ require_once "vue/formModifMedicament.php";
 else
 // appel de la fonction contrôleur de suppression
 supprMedicament($idE);
+}
+
+function ajoutMedicament()
+{
+// récupération des données (champs) du formulaire
+
+ $nomElM = htmlspecialchars($_POST["nomElM"]);
+ $desElM = htmlspecialchars($_POST["desElM"]);
+ $therapElM = htmlspecialchars($_POST["therapElM"]);
+ $secondElM = htmlspecialchars($_POST["secondElM"]);
+ // ajout de l'activité : appel de la fonction insEleve du modèle
+ insMedicaments($nomElM, $desElM, $secondElM ,$therapElM);
+
+// recherche des employés : appel de la fonction getActivites du modèle
+ $medicaments = getMedicaments();
+
+ // inclusion du fichier d'affichage des employés de la vue
+ require_once "vue/formAjouterMedicament.php";
+
+
 }
 
 function modifMedicament()

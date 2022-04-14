@@ -37,6 +37,13 @@ if ( $_GET["action"] == 'ME')
 
 chargementMedicament();
 else
+if ( $_GET["action"] == 'FM')
+// cas du formulaire d'ajout
+chargementFormAjoutMedicament();
+else
+if ( $_GET["action"] == 'AM')
+ajoutMedicament();
+else
 if ( $_GET["action"] == 'MEC')
 consultMedicaments();
 //else

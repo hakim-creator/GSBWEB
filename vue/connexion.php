@@ -39,6 +39,11 @@ id="imdp" />
 </div>
 <a href="inscription.php"></a>
 
+<p>
+     <a href="index.php?action=IS">
+     Pas encore enregistrer ? S'inscrire</a>
+ </p>
+
 
 <script type="text/javascript" src="js/bootstrap.js"></script>
 

@@ -4,6 +4,8 @@
    <meta charset="utf-8">
    <link rel="stylesheet"
    href="vue/bootstrap.min.css" />
+   <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
    <title>
    Saisie des informations d'un nouvel utilisateur
    </title>
@@ -11,9 +13,10 @@
  <body>
 
      <div class="container">
+      <div class="row justify-content-md-center">
+         <div class="col col-lg-2">
      <h1>Inscription</h1><br />
-     <form method="post"
-     action="index.php?action=I">
+     <form method="post" action="index.php?action=I">
     
      <p>
      <label for="nomE">Nom d'utilisateur</label><br />
@@ -36,19 +39,31 @@
      
      <br /><br />
      <p>
-     <input type="submit" value="Valider la saisie" />
-     
-     <p><a href="inscription.php"></a></p>
+     <input type="submit" class="btn btn-outline-dark" value="Valider la saisie" />
      </p>
      <br />
 
      </form>
 
      <p>
+     <a href="index.php?action=C">
+     Deja enregistrer ? Connectez vous</a>
+     </p>
+
+     <p>
      <a href="index.php">
-     Annuler : Retour au menu des elèves</a>
+     Retour</a>
      </p>
 
      </div>
+  </div>
+</div>
+
+
+
+
+     
+
+<script type="text/javascript" src="js/bootstrap.js"></script>
  </body>
 </html>

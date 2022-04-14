@@ -18,13 +18,13 @@
         <div class="row mb-3">
     <label for="nom" class="">Nom</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="nomEl" value="">
+      <input type="text" class="form-control" id="nom" name="nomEl" value="<?php echo $_SESSION['nomComp']; ?>">
     </div>
   </div>
   <div class="row mb-3">
     <label for="description" class="">Prenom</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" name="prenomEl" id="prenom">
+      <input type="text" class="form-control" name="prenomEl" id="prenom" value="<?php echo $_SESSION['prenomComp']; ?>">
     </div>
   </div>
   
@@ -48,7 +48,7 @@
   </div>
        
   
-  <button type="submit" class="btn btn-primary">Enregistrer</button>
+  <button type="submit" class="btn btn-primary">Je participe</button>
 </form>
     </div>
   </div>

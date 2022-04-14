@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>GSB</title>
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
   <script>
            function confirmSuppr(form)
            {
@@ -21,7 +21,7 @@
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">GSB</a>
+    <a class="navbar-brand" href="#"><img class="logo_home" src="img/gsbLogo.png"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -31,11 +31,17 @@
           <a class="nav-link active" aria-current="medicament" href="#">Médicament</a>
         </li>
         <li class="nav-item">
-          <?php if($_SESSION['typeUtil'] == "") { ?>
+          
                <a class="nav-link active"
                href="index.php?action=AA">
                Activité</a>
-               <?php } ?>
+               
+        </li>
+
+        <li class="nav-item">
+          <button class="btn btn-outline-dark">
+          <a class="nav-link active" aria-current="activite" href="index.php?action=D"> Se deconnecter</a>
+          </button>
         </li>
 
       </ul>
@@ -82,7 +88,12 @@
 
             <?php endforeach; ?>
 </table>
-<a href="index.php?action=D">Se déconnecter</a>
+
+<?php if($_SESSION['typeUtil'] == "A") { ?> 
+<a href="index.php?action=FM">Ajouter un médicament</a>
+<?php } ?>
+<br></br>
+
 <script type="text/javascript" src="js/bootstrap.js"></script>
 
 </body>

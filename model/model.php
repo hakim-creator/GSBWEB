@@ -77,8 +77,26 @@ catch(Exception $e)
 
  }
 
- 
+ function insMedicaments($nomElM, $desElM, $secondElM, $therapElM)
+ {
 
+ // appel de la fonction de connexion à la base de données
+ // renvoyant une référence à la base de données
+ $bd = connexionBd();
+
+ // préparation de la requête d'insertion dans la table eleves
+ $requete = $bd->prepare("INSERT INTO medicament(nom, Description, Effet_Second, Effet_Therap)
+VALUES
+(:nomEle, :desEle, :secondEle, :therapEle)");
+
+
+ // exécution de la requête
+ $bd->query("SET NAMES utf8");
+ $requete->execute(['nomEle' => $nomElM,
+ 'desEle' => $desElM,
+ 'secondEle' => $secondElM,
+ 'therapEle' => $therapElM]);
+}
 
 
 
