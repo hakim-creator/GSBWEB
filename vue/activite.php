@@ -12,7 +12,7 @@ session_start();
   <script>
            function confirmSuppr(form)
            {
-           if (confirm("Supprimer avec identifiant " +
+           if (confirm("Supprimer l'activiter numéro " +
            form.codeElevAction.value))
            // suppression confirmée
            form.submit();
@@ -37,18 +37,28 @@ session_start();
           
         </li>
         <li class="nav-item">
+          <a class="nav-link active" href="index.php?action=CT">Contact</a>     
+        </li>
+        <li class="nav-item">
           <button class="btn btn-outline-dark">
           <a class="nav-link active" aria-current="activite" href="index.php?action=D"> Se deconnecter</a>
           </button>
         </li>
 
       </ul>
+      <div class="profile">
+      <a href="index.php?action=PR" class="nav-link active"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+</svg><p><?php echo $_SESSION['nomComp']; ?> <?php echo $_SESSION["prenomComp"]; ?> (<?php echo $_SESSION['usernameComp']; ?>)</p></a>
+    </div>
     </div>
   </div>
 </nav>
 
 
   <br></br>
+  <h4>Activités disponibles :</h4>
 
 
 <table class="table table-bordered">
@@ -57,7 +67,7 @@ session_start();
       <th scope="col">Numéro</th>
       <th scope="col">Nom</th>
       <th scope="col">Date</th>
-      <th scope="col">Lieu</th>
+      <th scope="col">Adresse</th>
       <th scope="col">Participer</th>
       <!--<th scope="col">Modif</th>-->
       <?php if($_SESSION['typeUtil'] == "A") { ?>

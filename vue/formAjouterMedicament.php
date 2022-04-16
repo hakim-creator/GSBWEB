@@ -1,3 +1,6 @@
+<?php 
+session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="fr">
 	 <head>
@@ -5,7 +8,7 @@
 	 <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 	 <title>
-	 Saisie des informations d'un nouvel activité
+	 Ajouter un medicament
 	 </title>
 	 </head>
  <body>
@@ -14,7 +17,7 @@
 
 		 <div class="container">
   <div class="row justify-content-md-center">
-    <div class="col col-lg-2">
+    <div class="col col-lg-4">
       <form method="post" action="index.php?action=AM">
        
         
@@ -23,37 +26,37 @@
   <div class="row mb-3">
     <label for="description" class="">Nom du médicament</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="nomElM" value="">
+      <input type="text" class="form-control" id="nom" name="nomElM" value="" placeholder="Paracetamol" required>
     </div>
   </div>
   <div class="row mb-3">
     <label for="description" class="">Description</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="desElM" value="">
+      <input type="text" class="form-control" id="nom" name="desElM" value="" placeholder="" required>
     </div>
   </div>
   <div class="row mb-3">
     <label for="description" class="">Effet sécondaire</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="secondElM" value="">
+      <input type="text" class="form-control" id="nom" name="secondElM" value="" placeholder="" required>
     </div>
   </div>
   <div class="row mb-3">
     <label for="description" class="">Effet thérapeutique</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="therapElM" value="">
+      <input type="text" class="form-control" id="nom" name="therapElM" value="" placeholder="" required>
     </div>
   </div>
   <div class="row mb-3">
     <label for="description" class="">Médicament qui peuve intéragir</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="positiveElM" value="">
+      <input type="text" class="form-control" id="nom" name="positiveElM" value="" placeholder="Le nom des médicaments" required>
     </div>
   </div>
   <div class="row mb-3">
     <label for="description" class="">Médicament qui ne peut pas intéragir</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="negativeElM" value="">
+      <input type="text" class="form-control" id="nom" name="negativeElM" value="" placeholder="Le nom des médicaments" required>
     </div>
   </div>
        

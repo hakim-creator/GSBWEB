@@ -18,32 +18,32 @@
         <div class="row mb-3">
     <label for="nom" class="">Nom</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="nomEl" value="<?php echo $_SESSION['nomComp']; ?>">
+      <input type="text" class="form-control" id="nom" name="nomEl" value="<?php echo $_SESSION['nomComp']; ?>" required>
     </div>
   </div>
   <div class="row mb-3">
     <label for="description" class="">Prenom</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" name="prenomEl" id="prenom" value="<?php echo $_SESSION['prenomComp']; ?>">
+      <input type="text" class="form-control" name="prenomEl" id="prenom" value="<?php echo $_SESSION['prenomComp']; ?>" required>
     </div>
   </div>
   
   <div class="row mb-3">
     <label for="description" class="">Nom de l'activite</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="activiteEl" value="<?php echo $activite['nom']; ?>">
+      <input type="text" class="form-control" id="nom" name="activiteEl" value="<?php echo $activite['nom']; ?>" required>
     </div>
   </div>
   <div class="row mb-3">
     <label for="description" class="">Date</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="dateEl" value="<?php echo $activite['Date_Activite']; ?>">
+      <input type="text" class="form-control" id="nom" name="dateEl" value="<?php echo $activite['Date_Activite']; ?>" required>
     </div>
   </div>
   <div class="row mb-3">
-    <label for="description" class="">Lieu</label>
+    <label for="description" class="">Adresse</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="lieuEl" value="<?php echo $activite['Lieu']; ?>">
+      <input type="text" class="form-control" id="nom" name="lieuEl" value="<?php echo $activite['Lieu']; ?>" required>
     </div>
   </div>
        

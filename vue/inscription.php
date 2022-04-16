@@ -1,3 +1,6 @@
+<?php 
+session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="fr">
    <head>
@@ -24,17 +27,17 @@
      </div>
      <div>
      <label for="prenomE">Mot de passe</label><br />
-     <input type="password" name="passwordEl" class="form-control" id="motDePasseEl"  required />
+     <input type="password" name="passwordEl" class="form-control" id="motDePasseEl" title="Majiscules, miniscules, chiffres et caractères spéciaux" placeholder="12 caractères minimum"  required />
      </div>
 
      <div>
      <label for="classeE">Nom</label><br />
-     <input type="text" name="nomEl" class="form-control" id="nomEl" required />
+     <input type="text" name="nomEl" class="form-control" id="nomEl" placeholder="WAYNE" required />
      </div>
 
      <div>
      <label for="anneeE">Prenom</label><br />
-     <input type="text" name="prenomEl" class="form-control" id="prenomEl" required />
+     <input type="text" name="prenomEl" class="form-control" id="prenomEl" placeholder="Bruce" required />
      </div>
      
      <br /><br />

@@ -89,4 +89,27 @@ else
 if ( $_GET["action"] == 'I')
 // cas de la suppression
 Inscription();
+
+else
+if ( $_GET["action"] == 'PR')
+// cas de la suppression
+chargementProfile();
+else
+if ( $_GET["action"] == 'PRM')
+// cas de la suppression
+chargementModifProfile();
+else
+if ( $_GET["action"] == 'PRMM')
+modifProfile();
+else
+if ( $_GET["action"] == 'PRMC')
+// cas de la suppression
+chargementModifPassword();
+else
+if ( $_GET["action"] == 'PRMMP')
+modifPassword();
+else
+if ( $_GET["action"] == 'CT')
+// cas de la suppression
+chargementContact();
 ?>

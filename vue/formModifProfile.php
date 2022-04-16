@@ -1,6 +1,3 @@
-<?php 
-session_start();
- ?>
 <!DOCTYPE html>
 <html lang="fr">
 	 <head>
@@ -8,7 +5,7 @@ session_start();
 	 <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 	 <title>
-	 Saisie des informations d'un nouvel activité
+	 Profile
 	 </title>
 	 </head>
  <body>
@@ -18,29 +15,32 @@ session_start();
 		 <div class="container">
   <div class="row justify-content-md-center">
     <div class="col col-lg-4">
-      <form method="post" action="index.php?action=A">
+      <form method="post" action="index.php?action=PRMM">
        
         
   
+  <div class="row mb-3">
+    
+    <div class="col-sm-12">
+     <input type="hidden" name="usernameEl" class="form-control" value="<?php echo $_SESSION['usernameComp']; ?>">
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="description" class="">Nom :</label>
+    <div class="col-sm-12">
+      <input type="text" class="form-control" name="nomEl" value="<?php echo $_SESSION['nomComp']; ?>">
+      
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="description" class="">Prénom :</label>
+    <div class="col-sm-12">
+      <input type="text" class="form-control" name="prenomEl" value="<?php echo $_SESSION['prenomComp']; ?>">
+     
+    </div>
+  </div>
+
   
-  <div class="row mb-3">
-    <label for="description" class="">Nom de l'activite</label>
-    <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="nomEl" value="" required>
-    </div>
-  </div>
-  <div class="row mb-3">
-    <label for="description" class="">Date</label>
-    <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="dateEl" value="" placeholder="JJ/MM/AAAA" required>
-    </div>
-  </div>
-  <div class="row mb-3">
-    <label for="description" class="">Adresse</label>
-    <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="lieuEl" value="" placeholder="56 Avenue du comminge, 31270, Cugnaux " required>
-    </div>
-  </div>
   
 
        
@@ -53,8 +53,8 @@ value="Valider les modifications" class="btn btn-outline-dark"/>
 
 <br></br>
 		<p>
-		 <a href="index.php?action=AA" class="nav-link active">
-		 Annuler : Retour au menu des activités</a>
+		 <a href="index.php?action=MEC" class="nav-link active">
+		 Retour</a>
 		 </p>
     </div>
   </div>

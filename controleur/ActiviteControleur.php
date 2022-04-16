@@ -119,10 +119,10 @@ $idE = htmlspecialchars($_POST["codeElevAction"]);
 // aiguillage
 //if (!empty(htmlspecialchars($_POST["modif"])))
 //{
-// recherche de l'activite correspondant à ce code
-// via la fonction getActivite du modèle
+ //recherche de l'activite correspondant à ce code
+ //via la fonction getActivite du modèle
 //$activite = getActivite($idE);
-// inclusion du formulaire de modification (vue)
+ //inclusion du formulaire de modification (vue)
 //require_once "vue/formModifActivite.php";
 //}
 //else

@@ -55,6 +55,7 @@ catch(Exception $e)
  }
 
 
+
 // fonction renvoyant l'activité correspondant à un certain code
  function getMedicament($idE)
  {
@@ -122,6 +123,46 @@ VALUES
  'Effet_SecondM' => $Effet_SecondEl,
  'Effet_TherapM' => $Effet_TherapEl,
  'idEleve' => $idEl]);
+
+ }
+  function updProfile($nomEl, $prenomEl, $usernameEl)
+ {
+   
+ // appel de la fonction de connexion à la base de données
+ // renvoyant une référence à la base de données
+ $bd = connexionBd();
+$user = $_SESSION['usernameComp'];
+ // préparation de la requête de mise à jour dans la table activite
+ $requete = $bd->prepare("UPDATE utilisateurs
+ SET nomComplet = :nomM, prenomComplet = :prenomM, nomUtilisateur = :usernameM
+ WHERE nomUtilisateur = :usernameM");
+
+ // exécution de la requête
+ $bd->query("SET NAMES utf8");
+ $requete->execute(['nomM' => $nomEl,
+ 'prenomM' => $prenomEl,
+'usernameM' => $usernameEl]);
+
+ }
+
+ function updPassword($passwordEl, $usernameEl)
+ {
+
+ // appel de la fonction de connexion à la base de données
+ // renvoyant une référence à la base de données
+ $bd = connexionBd();
+$mdpChiffre = hash("sha256", $passwordEl);
+
+ // préparation de la requête de mise à jour dans la table activite
+ $requete = $bd->prepare("UPDATE utilisateurs
+ SET  motDePasse = :passwordM
+ WHERE nomUtilisateur = :usernameM");
+
+ // exécution de la requête
+ $bd->query("SET NAMES utf8");
+ $requete->execute([
+ 'passwordM' => $mdpChiffre,
+'usernameM' => $usernameEl]);
 
  }
 
@@ -405,4 +446,36 @@ function getWebActivite(){
 
  echo $lesRes[0];
 }
+
+
+
+ function getHistoriques()
+ {
+
+ // appel de la fonction de connexion à la base de données
+ // renvoyant une référence à la base de données
+ $bd = connexionBd();
+
+$historique = $_SESSION['idComp'];
+ // constitution de la requête de sélection dans la table medicament
+ $requete = "SELECT * FROM participer 
+ WHERE id = $historique";
+
+ // exécution de la requête et renvoi du résultat
+ $bd->query("SET NAMES utf8");
+ $resultat = $bd->query($requete);
+ // initialisation du tableau à vide
+ $medocs = array();
+ // boucle de balayage du résultat de la requête
+
+ // et constitution du tableau PHP $medocs
+ while ( $ligne = $resultat->fetch() )
+ {
+ $medocs[] = $ligne;
+ }
+ // fermeture du curseur relatif au résultat
+ $resultat->closeCursor();
+ return $medocs;
+
+ }
 ?>

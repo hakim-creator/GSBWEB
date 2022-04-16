@@ -11,9 +11,34 @@ function consultMedicaments()
 }
 
 
+
 function chargementFormConnexion()
 {
 require_once "vue/connexion.php";
+}
+
+function chargementContact()
+{
+   session_start();
+require_once "vue/contact.php";
+}
+
+function chargementProfile()
+{
+   session_start();
+
+   $historiques = getHistoriques();
+   require_once "vue/profile.php";
+}
+function chargementModifProfile()
+{
+   session_start();
+   require_once "vue/formModifProfile.php";
+}
+function chargementModifPassword()
+{
+   session_start();
+   require_once "vue/formModifPassword.php";
 }
 
 function chargementFormHome()
@@ -70,6 +95,9 @@ else
 // utilisateur existant
 // création de 3 variables de session pour le nom et le prénom complet
 // (données personnelles), et le type d'utilisateur
+   $_SESSION['usernameComp']= $utilisateur["nomUtilisateur"];
+   $_SESSION['idComp']= $utilisateur["id"];
+   $_SESSION['passwordComp']= $utilisateur["motDePasse"];
    $_SESSION['nomComp']= $utilisateur["nomComplet"];
    $_SESSION['prenomComp']= $utilisateur["prenomComplet"];
    $_SESSION['typeUtil']= $utilisateur["type"];
@@ -141,6 +169,48 @@ updMedicament($idEl, $nomEl, $descriptionEl,$Effet_SecondEl,$Effet_TherapEl );
 // recherche medicaments : appel de la fonction getMedicament du modèle
  $medicaments = getMEdicaments();
 
+ // inclusion du fichier d'affichage des medicament de la vue
+ require_once "vue/medicament.php";
+}
+
+function modifProfile()
+{
+// récupération des données du formulaire
+session_start();
+ $nomEl = htmlspecialchars($_POST["nomEl"]);
+ $prenomEl = htmlspecialchars($_POST["prenomEl"]);
+ $usernameEl = htmlspecialchars($_POST["usernameEl"]);
+
+ 
+ // mise à jour dmedicament : appel de la fonction updMedicament 
+
+ // du modèle
+updProfile($nomEl, $prenomEl, $usernameEl);
+
+
+
+$medicaments = getMedicaments();
+ // inclusion du fichier d'affichage des medicament de la vue
+ require_once "vue/profile.php";
+}
+
+
+function modifPassword()
+{
+// récupération des données du formulaire
+ $usernameEl = htmlspecialchars($_POST["usernameEl"]);
+ $passwordEl = htmlspecialchars($_POST["passwordEl"]);
+
+ 
+ // mise à jour  : appel de la fonction updMedicament 
+
+ // du modèle
+updPassword($passwordEl, $usernameEl);
+
+// recherche medicaments : appel de la fonction getMedicament du modèle
+
+session_start();
+$medicaments = getMedicaments();
  // inclusion du fichier d'affichage des medicament de la vue
  require_once "vue/medicament.php";
 }
