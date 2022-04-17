@@ -60,6 +60,12 @@ session_start();
   <br></br>
   <h4>Activités disponibles :</h4>
 
+<div class="py-12">
+        <div class="flex flex-col">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+
 
 <table class="table table-bordered">
   <thead>
@@ -75,6 +81,8 @@ session_start();
        <?php } ?>
     </tr>
   </thead>
+
+
   
 
             <?php foreach ($activites as $activite): ?>
@@ -93,12 +101,12 @@ session_start();
                    <td><?php echo $activite["Lieu"];?></td>
                    
                    
-                  <td><input type="submit" name="part"
+                  <td><input type="submit" class="btn btn-outline-dark" name="part"
                    value="Participer" /></td>
-                   <!--<td><input type="submit" name="modif"
+                   <!--<td><input type="submit" class="btn btn-outline-dark" name="modif"
                    value="Modifier" /></td>-->
                    <?php if($_SESSION['typeUtil'] == "A") { ?>
-                   <td><input type="button" name="sup" value="Supprimer"
+                   <td><input type="button" class="btn btn-outline-dark" name="sup" value="Supprimer"
                    onClick="confirmSuppr(form);" />
                    <?php } ?>
                   
@@ -109,7 +117,11 @@ session_start();
             <?php endforeach; ?>
        
 </table>
-
+</div>
+</div>
+</div>
+</div>
+</div>
 <!-- lien pour ajouter un elève -->
  <?php if($_SESSION['typeUtil'] == "A") { ?>         
 <a href="index.php?action=FA" class="nav-link active">Ajouter un activiter</a>
@@ -117,6 +129,6 @@ session_start();
 <br /><br />
 
 <script type="text/javascript" src="js/bootstrap.js"></script>
-
+<script src="https://cdn.tailwindcss.com"></script>
 </body>
 </html>

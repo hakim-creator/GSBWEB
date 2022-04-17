@@ -21,10 +21,12 @@ session_start();
      <h1>Inscription</h1><br />
      <form method="post" action="index.php?action=I">
     
-     <div>
+     <div class="row mb-3">
      <label for="nomE">Nom d'utilisateur</label><br />
+     <div class="col-sm-12">
      <input type="text" name="usernameEl" class="form-control" id="nomUtilEl" required />
      </div>
+      </div>
      <div>
      <label for="prenomE">Mot de passe</label><br />
      <input type="password" name="passwordEl" class="form-control" id="motDePasseEl" title="Majiscules, miniscules, chiffres et caractères spéciaux" placeholder="12 caractères minimum"  required />

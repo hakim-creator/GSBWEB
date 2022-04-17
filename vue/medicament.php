@@ -57,6 +57,12 @@
 <br></br>
 <h4>Nos médicaments :</h4>
 
+<div class="py-12">
+        <div class="flex flex-col">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -97,13 +103,17 @@
 
             <?php endforeach; ?>
 </table>
-
+</div>
+</div>
+</div>
+</div>
+</div>
 <!--<?php if($_SESSION['typeUtil'] == "A") { ?> 
 <a href="index.php?action=FM" class="nav-link active">Ajouter un médicament</a>
 <?php } ?>-->
 <br></br>
 
 <script type="text/javascript" src="js/bootstrap.js"></script>
-
+<script src="https://cdn.tailwindcss.com"></script>
 </body>
 </html>
