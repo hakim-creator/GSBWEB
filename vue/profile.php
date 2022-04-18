@@ -7,6 +7,16 @@
 	 <title>
 	 Saisie des informations d'un nouvel activité
 	 </title>
+
+   <script>
+           function confirmSuppr(form)
+           {
+           if (confirm("Annuler l'activiter  " +
+           form.codeProfileAction.value))
+           // suppression confirmée
+           form.submit();
+           }
+         </script>
 	 </head>
  <body>
 
@@ -89,7 +99,7 @@
 
 
 <!--Historique-->
-<!--Historique
+
   <div class="container">
 
         <div class="py-12">
@@ -102,10 +112,12 @@
 
 
                         <h5>Historiques de participation:</h5>
-                        <form method="post" action="index.php?action=PRM">
+                        <form method="post" action="index.php?action=SH">
+
        
                     
                       <?php foreach ($historiques as $historique): ?>
+                        <input type="hidden" name="codeProfileAction" value="<?php echo $historique['id']; ?>" />
 
                    
                           
@@ -116,7 +128,7 @@
                             </div>
                           </div>
                           <div class="row mb-3">
-                            <label for="description" class="">Prenom :</label>
+                            <label for="description" class="">Prénom :</label>
                             <div class="col-sm-12">
                               <p><?php echo $historique["prenom"]; ?></p>
                             </div>
@@ -127,12 +139,7 @@
                               <p><?php echo $historique["activite"]; ?></p>
                             </div>
                           </div>
-                          <div class="row mb-3">
-                            <label for="description" class="">Activiter :</label>
-                            <div class="col-sm-12">
-                              <p><?php echo $historique['activite']; ?></p>
-                            </div>
-                          </div>
+                          
                           <div class="row mb-3">
                             <label for="description" class="">Adresse :</label>
                             <div class="col-sm-12">
@@ -142,9 +149,13 @@
                           <div class="row mb-3">
                             <label for="description" class="">Date :</label>
                             <div class="col-sm-12">
-                              <p><?php echo $historique['dateTime']; ?></p>
+                              <p><?php echo $historique['date_activite']; ?></p>
                             </div>
                           </div>
+
+                          
+                          <input type="button" class="btn btn-outline-dark" name="supHistorique" value="Annuler"
+                          onClick="confirmSuppr(form);" />
                         
 
                       <?php endforeach; ?>
@@ -165,7 +176,7 @@
             </div>
         </div>
     </div>
-</div>-->
+</div>
     
 <!--fin-->
 

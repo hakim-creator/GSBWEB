@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 15 avr. 2022 à 11:33
+-- Généré le : dim. 17 avr. 2022 à 08:21
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -36,15 +36,15 @@ CREATE TABLE IF NOT EXISTS `activite` (
   `id_Responsable` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_Responsable` (`id_Responsable`)
-) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `activite`
 --
 
 INSERT INTO `activite` (`id`, `nom`, `Date_Activite`, `Lieu`, `id_Responsable`) VALUES
-(35, 'match de foot', '15/03/2015', '28 Rue du thor, 31500 Toulouse', NULL),
-(33, 'Concour dicte', '12/26/2022', '12 Boulvard cominge, 81000 Albi', NULL),
+(36, 'Cinema', '05/12/2029', '11 aller occitanie, 31600 Labege', NULL),
+(33, 'Course de pneus', '12/26/2022', '32 Boulvard cominge, 81000 Albi', NULL),
 (34, 'symposiume', '12/26/2022', '58 Rue de la fourg, 31100 Toulouse', NULL);
 
 -- --------------------------------------------------------
@@ -83,6 +83,22 @@ DROP TABLE IF EXISTS `effet_therap`;
 CREATE TABLE IF NOT EXISTS `effet_therap` (
   `Id_Effet_Therap` int(11) DEFAULT NULL,
   `Effet_Ther` varchar(500) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `historique`
+--
+
+DROP TABLE IF EXISTS `historique`;
+CREATE TABLE IF NOT EXISTS `historique` (
+  `id` int(11) NOT NULL,
+  `id_participer` int(11) NOT NULL,
+  `id_utilisateur` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_participer` (`id_participer`),
+  KEY `id_utilisateur` (`id_utilisateur`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -144,17 +160,21 @@ CREATE TABLE IF NOT EXISTS `participer` (
   `activite` varchar(500) NOT NULL,
   `date_activite` varchar(500) NOT NULL,
   `Lieu` varchar(500) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+  `dateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `id_util` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_util` (`id_util`)
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `participer`
 --
 
-INSERT INTO `participer` (`id`, `nom`, `prenom`, `activite`, `date_activite`, `Lieu`) VALUES
-(12, 'bruce', 'wayne', 'symposiume', '12/26/2022', '58 Rue de la fourg, 31100 Toulouse'),
-(11, 'Ben', 'Ali', 'Concour dicte', '12/26/2022', '12 Boulvard cominge, 81000 Albi'),
-(10, 'Ben', 'Ali', 'match de foot', '15/03/2015', '28 Rue du thor, 31500 Toulouse');
+INSERT INTO `participer` (`id`, `nom`, `prenom`, `activite`, `date_activite`, `Lieu`, `dateTime`, `id_util`) VALUES
+(17, 'Hakim', 'Ben', 'Course de pneus', '12/26/2022', '32 Boulvard cominge, 81000 Albi', '2022-04-16 10:18:54', 17),
+(18, 'Hakim', 'Ben', 'symposiume', '12/26/2022', '58 Rue de la fourg, 31100 Toulouse', '2022-04-16 11:10:01', 17),
+(21, 'M\'LOA', 'Hakim', 'Course de pneus', '12/26/2022', '32 Boulvard cominge, 81000 Albi', '2022-04-17 09:51:07', 17),
+(23, 'Ben', 'Hakim', 'Course de pneus', '12/26/2022', '32 Boulvard cominge, 81000 Albi', '2022-04-17 10:11:28', 18);
 
 -- --------------------------------------------------------
 
@@ -284,16 +304,17 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `prenomComplet` varchar(500) NOT NULL,
   `type` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`id`, `nomUtilisateur`, `motDePasse`, `nomComplet`, `prenomComplet`, `type`) VALUES
-(18, 'benali', '296610ba95a48961985e84910244214082c93aed717365ed562e75d0ad423a7c', 'Ben', 'Ali', 'U'),
+(18, 'benali', '296610ba95a48961985e84910244214082c93aed717365ed562e75d0ad423a7c', 'Ben', 'Hakim', 'U'),
+(24, 'veuvenoir', '296610ba95a48961985e84910244214082c93aed717365ed562e75d0ad423a7c', 'Romanov', 'Natacha', NULL),
 (19, 'bruce', '296610ba95a48961985e84910244214082c93aed717365ed562e75d0ad423a7c', 'bruce', 'wayne', NULL),
-(17, 'hakimaliben', '296610ba95a48961985e84910244214082c93aed717365ed562e75d0ad423a7c', 'hakim', 'Ben', 'A');
+(17, 'hakimaliben', '296610ba95a48961985e84910244214082c93aed717365ed562e75d0ad423a7c', 'M\'LOA', 'Hakim', 'A');
 
 -- --------------------------------------------------------
 

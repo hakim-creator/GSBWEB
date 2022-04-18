@@ -299,7 +299,7 @@ VALUES
 
 
 // fonction participer 
- function insParticipes($nomEl,$prenomEl,$activiteEl, $dateEl, $lieuEl)
+ function insParticipes($nomEl,$prenomEl,$activiteEl, $dateEl, $lieuEl, $id_ut)
  {
 
  // appel de la fonction de connexion à la base de données
@@ -307,9 +307,9 @@ VALUES
  $bd = connexionBd();
 
  // préparation de la requête d'insertion dans la table activite
- $requete = $bd->prepare("INSERT INTO participer(nom, prenom, activite, date_activite, Lieu)
+ $requete = $bd->prepare("INSERT INTO participer(nom, prenom, activite, date_activite, Lieu, id_util)
 VALUES
-(:nomEle, :prenomEle, :activiteEle, :dateEle, :LieuEle)");
+(:nomEle, :prenomEle, :activiteEle, :dateEle, :LieuEle, :id_utEle)");
 
 
  // exécution de la requête
@@ -318,7 +318,8 @@ VALUES
  'prenomEle' => $prenomEl,
  'activiteEle' => $activiteEl,
  'dateEle' => $dateEl,
- 'LieuEle' => $lieuEl]);
+ 'LieuEle' => $lieuEl,
+'id_utEle' => $id_ut]);
 
  }
 
@@ -420,6 +421,23 @@ VALUES
 
  }
 
+  function delParticipation($idE)
+ {
+
+ // appel de la fonction de connexion à la base de données
+ // renvoyant une référence à la base de données
+ $bd = connexionBd();
+
+ // préparation de la requête de suppression dans la table activitées
+ $requete = $bd->prepare("DELETE FROM participer
+ WHERE id = :idEl");
+ // exécution de la requête
+ $bd->query("SET NAMES utf8");
+ $requete->execute(['idEl' => $idE]);
+ 
+
+ }
+
 
 
 //Service Web
@@ -459,7 +477,7 @@ function getWebActivite(){
 $historique = $_SESSION['idComp'];
  // constitution de la requête de sélection dans la table medicament
  $requete = "SELECT * FROM participer 
- WHERE id = $historique";
+ WHERE id_util = $historique";
 
  // exécution de la requête et renvoi du résultat
  $bd->query("SET NAMES utf8");

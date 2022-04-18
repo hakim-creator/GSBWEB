@@ -98,9 +98,9 @@ function participerActivite()
  $activiteEl = htmlspecialchars($_POST["activiteEl"]);
  $dateEl = htmlspecialchars($_POST["dateEl"]);
  $lieuEl = htmlspecialchars($_POST["lieuEl"]);
-
+ $id_ut = htmlspecialchars($_POST["id_ut"]);
  //  appel de la fonction insEleve du modèle
- insParticipes($nomEl,$prenomEl,$activiteEl, $dateEl, $lieuEl);
+ insParticipes($nomEl,$prenomEl,$activiteEl, $dateEl, $lieuEl, $id_ut);
 
 // recherche des employés : appel de la fonction getActivites du modèle
  $activites = getActivites();

@@ -112,4 +112,12 @@ else
 if ( $_GET["action"] == 'CT')
 // cas de la suppression
 chargementContact();
+else
+if ( $_GET["action"] == 'SHP')
+// cas de la suppression
+supprParticipation();
+else
+if ( $_GET["action"] == 'SH')
+// cas de la suppression
+aiguillageParticipation();
 ?>

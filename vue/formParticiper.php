@@ -15,6 +15,13 @@
     <div class="col col-lg-2">
       <form method="post" action="index.php?action=P">
         
+
+        <div class="row mb-3">
+    <label for="nom" class="">id_util</label>
+    <div class="col-sm-12">
+      <input type="hidden" class="form-control" id="nom" name="id_ut" value="<?php echo $_SESSION['idComp']; ?>" required>
+    </div>
+  </div>
         <div class="row mb-3">
     <label for="nom" class="">Nom</label>
     <div class="col-sm-12">

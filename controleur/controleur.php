@@ -260,4 +260,27 @@ function Inscription()
 
 }
 
+
+function aiguillageParticipation()
+{
+
+// récupération du code eleve
+$idE = htmlspecialchars($_POST["codeProfileAction"]);
+
+// appel de la fonction contrôleur de suppression
+supprParticipation($idE);
+}
+
+function supprParticipation($idE)
+{
+// suppression de l'activite : appel de la fonction delActivitee du modèle
+delParticipation($idE);
+session_start();
+// recherche des Activites : appel de la fonction getActivites du modèle
+$medicaments = getMedicaments();
+// inclusion du fichier d'affichage des medicaments de la vue
+
+require_once "vue/medicament.php";
+}
+
 ?>
