@@ -26,57 +26,57 @@ catch(Exception $e)
  }
 
  // fonction renvoyant le tableau des medicaments
- function getMedicaments()
- {
+ //function getMedicaments()
+ //{
 
  // appel de la fonction de connexion à la base de données
  // renvoyant une référence à la base de données
- $bd = connexionBd();
+ //$bd = connexionBd();
 
  // constitution de la requête de sélection dans la table medicament
- $requete = "SELECT * FROM medicament";
+ //$requete = "SELECT * FROM medicament";
 
  // exécution de la requête et renvoi du résultat
- $bd->query("SET NAMES utf8");
- $resultat = $bd->query($requete);
+ //$bd->query("SET NAMES utf8");
+ //$resultat = $bd->query($requete);
  // initialisation du tableau à vide
- $medocs = array();
+ //$medocs = array();
  // boucle de balayage du résultat de la requête
 
  // et constitution du tableau PHP $medocs
- while ( $ligne = $resultat->fetch() )
- {
- $medocs[] = $ligne;
- }
+ //while ( $ligne = $resultat->fetch() )
+ //{
+ //$medocs[] = $ligne;
+ //}
  // fermeture du curseur relatif au résultat
- $resultat->closeCursor();
- return $medocs;
+ //$resultat->closeCursor();
+ //return $medocs;
 
- }
+ //}
 
 
 
 // fonction renvoyant l'activité correspondant à un certain code
- function getMedicament($idE)
- {
+ //function getMedicament($idE)
+ //{
 
  // appel de la fonction de connexion à la base de données
  // renvoyant une référence à la base de données
- $bd = connexionBd();
+ //$bd = connexionBd();
 
  // préparation de la requête de sélection dans la table eleves
- $requete = $bd->prepare("SELECT * FROM medicament
- WHERE id = :idEleve");
+ //$requete = $bd->prepare("SELECT * FROM medicament
+ //WHERE id = :idEleve");
  // exécution de la requête
- $bd->query("SET NAMES utf8");
- $requete->execute(['idEleve' => $idE]);
+ //$bd->query("SET NAMES utf8");
+ //$requete->execute(['idEleve' => $idE]);
 
  // récupération de la ligne du résultat
- $medoc = $requete->fetch();
+ //$medoc = $requete->fetch();
 
- return $medoc;
+ //return $medoc;
 
- }
+ //}
 
  function insMedicaments($nomElM, $desElM, $secondElM, $therapElM, $positiveElM, $negativeElM)
  {
@@ -186,43 +186,6 @@ $mdpChiffre = hash("sha256", $passwordEl);
  }
 
  
- function fillUtilisateurs()
-{
-// appel de la fonction de connexion à la base de données
-// renvoyant une référence à la base de données
-$bd = connexionBd();
-// requête d'insertion APRES CHIFFRAGE DU MOT DE PASSE
-$mdpChiffre = hash("sha256", "Picsou1");
-$requete = "INSERT INTO utilisateurs
-VALUES
-('ptronc', '$mdpChiffre', 'TRONC', 'Paul', 'U')";
-// exécution de la requête
-$bd->query("SET NAMES utf8");
-$bd->query($requete);
-// requête d'insertion APRES CHIFFRAGE DU MOT DE PASSE
-$mdpChiffre = hash("sha256", "Donald2");
-$requete = "INSERT INTO utilisateurs
-VALUES
-('jnastic', '$mdpChiffre', 'NASTIC', 'Jim', 'A')";
-// exécution de la requête
-$bd->query("SET NAMES utf8");
-$bd->query($requete);
-// requête d'insertion APRES CHIFFRAGE DU MOT DE PASSE
-$mdpChiffre = hash("sha256", "Mickey3");
-$requete = "INSERT INTO utilisateurs
-VALUES
-('phibulaire', '$mdpChiffre', 'HIBULAIRE', 'Pat', 'U')";
-// exécution de la requête
-$bd->query("SET NAMES utf8");
-$bd->query($requete);
-}
-
-
-
- 
-
-
- 
 
 
 
@@ -253,127 +216,127 @@ return $util;
 
 
 // fonction ajoutant un activité
- function insActivites($nomEl, $dateEl, $lieuEl)
- {
+ //function insActivites($nomEl, $dateEl, $lieuEl)
+ //{
 
  // appel de la fonction de connexion à la base de données
  // renvoyant une référence à la base de données
- $bd = connexionBd();
+ //$bd = connexionBd();
 
  // préparation de la requête d'insertion dans la table activite
- $requete = $bd->prepare("INSERT INTO activite(nom, Date_Activite, Lieu)
-VALUES
-(:nomEle, :dateEle, :LieuEle)");
+ //$requete = $bd->prepare("INSERT INTO activite(nom, Date_Activite, Lieu)
+//VALUES
+//(:nomEle, :dateEle, :LieuEle)");
 
 
  // exécution de la requête
- $bd->query("SET NAMES utf8");
- $requete->execute(['nomEle' => $nomEl,
- 'dateEle' => $dateEl,
- 'LieuEle' => $lieuEl]);
+ //$bd->query("SET NAMES utf8");
+ //$requete->execute(['nomEle' => $nomEl,
+ //'dateEle' => $dateEl,
+ //'LieuEle' => $lieuEl]);
 
- }
+ //}
 
-  function insInscriptions($usernameEl, $passwordEl, $nomEl, $prenomEl)
- {
+ // function insInscriptions($usernameEl, $passwordEl, $nomEl, $prenomEl)
+ //{
 
  // appel de la fonction de connexion à la base de données
  // renvoyant une référence à la base de données
- $bd = connexionBd();
+ //$bd = connexionBd();
 
-$mdpChiffre = hash("sha256", $passwordEl);
+//$mdpChiffre = hash("sha256", $passwordEl);
  // préparation de la requête d'insertion dans la table activite
- $requete = $bd->prepare("INSERT INTO utilisateurs(nomUtilisateur, motDePasse, nomComplet, prenomComplet)
-VALUES
-(:nomUtilisateurEle, :motDePasseEle, :nomCompletEle, :prenomCompletEle)");
+ //$requete = $bd->prepare("INSERT INTO utilisateurs(nomUtilisateur, motDePasse, nomComplet, prenomComplet)
+//VALUES
+//(:nomUtilisateurEle, :motDePasseEle, :nomCompletEle, :prenomCompletEle)");
 
 
  // exécution de la requête
- $bd->query("SET NAMES utf8");
- $requete->execute(['nomUtilisateurEle' => $usernameEl,
- 'motDePasseEle' => $mdpChiffre,
- 'nomCompletEle' => $nomEl,
- 'prenomCompletEle' => $prenomEl]);
+ //$bd->query("SET NAMES utf8");
+ //$requete->execute(['nomUtilisateurEle' => $usernameEl,
+ //'motDePasseEle' => $mdpChiffre,
+ //'nomCompletEle' => $nomEl,
+ //'prenomCompletEle' => $prenomEl]);
 
- }
+ //}
 
 
 // fonction participer 
- function insParticipes($nomEl,$prenomEl,$activiteEl, $dateEl, $lieuEl, $id_ut)
- {
+ //function insParticipes($nomEl,$prenomEl,$activiteEl, $dateEl, $lieuEl, $id_ut)
+ //{
 
  // appel de la fonction de connexion à la base de données
  // renvoyant une référence à la base de données
- $bd = connexionBd();
+ //$bd = connexionBd();
 
  // préparation de la requête d'insertion dans la table activite
- $requete = $bd->prepare("INSERT INTO participer(nom, prenom, activite, date_activite, Lieu, id_util)
-VALUES
-(:nomEle, :prenomEle, :activiteEle, :dateEle, :LieuEle, :id_utEle)");
+ //$requete = $bd->prepare("INSERT INTO participer(nom, prenom, activite, date_activite, Lieu, id_util)
+//VALUES
+//(:nomEle, :prenomEle, :activiteEle, :dateEle, :LieuEle, :id_utEle)");
 
 
  // exécution de la requête
- $bd->query("SET NAMES utf8");
- $requete->execute(['nomEle' => $nomEl,
- 'prenomEle' => $prenomEl,
- 'activiteEle' => $activiteEl,
- 'dateEle' => $dateEl,
- 'LieuEle' => $lieuEl,
-'id_utEle' => $id_ut]);
+ //$bd->query("SET NAMES utf8");
+ //$requete->execute(['nomEle' => $nomEl,
+ //'prenomEle' => $prenomEl,
+ //'activiteEle' => $activiteEl,
+ //'dateEle' => $dateEl,
+ //'LieuEle' => $lieuEl,
+//'id_utEle' => $id_ut]);
 
- }
+ //}
 
 // fonction renvoyant le tableau des activites
- function getActivites()
- {
+ //function getActivites()
+ //{
 
  // appel de la fonction de connexion à la base de données
  // renvoyant une référence à la base de données
- $bd = connexionBd();
+ //$bd = connexionBd();
 
  // constitution de la requête de sélection dans la table activite
- $requete = "SELECT * FROM activite";
+ //$requete = "SELECT * FROM activite";
 
  // exécution de la requête et renvoi du résultat
- $bd->query("SET NAMES utf8");
- $resultat = $bd->query($requete);
+ //$bd->query("SET NAMES utf8");
+ //$resultat = $bd->query($requete);
  // initialisation du tableau à vide
- $activ = array();
+ //$activ = array();
  // boucle de balayage du résultat de la requête
 
  // et constitution du tableau PHP $activ
- while ( $ligne = $resultat->fetch() )
- {
- $activ[] = $ligne;
- }
+ //while ( $ligne = $resultat->fetch() )
+ //{
+ //$activ[] = $ligne;
+ //}
  // fermeture du curseur relatif au résultat
- $resultat->closeCursor();
- return $activ;
+ //$resultat->closeCursor();
+ //return $activ;
 
- }
+ //}
 
 
 // fonction renvoyant l'activiter correspondant à un certain code
- function getActivite($idE)
- {
+ //function getActivite($idE)
+ //{
 
  // appel de la fonction de connexion à la base de données
  // renvoyant une référence à la base de données
- $bd = connexionBd();
+ //$bd = connexionBd();
 
  // préparation de la requête de sélection dans la table eleves
- $requete = $bd->prepare("SELECT * FROM activite
- WHERE id = :idEleve");
+ //$requete = $bd->prepare("SELECT * FROM activite
+ //WHERE id = :idEleve");
  // exécution de la requête
- $bd->query("SET NAMES utf8");
- $requete->execute(['idEleve' => $idE]);
+ //$bd->query("SET NAMES utf8");
+ //$requete->execute(['idEleve' => $idE]);
 
  // récupération de la ligne du résultat
- $activit = $requete->fetch();
+ //$activit = $requete->fetch();
 
- return $activit;
+ //return $activit;
 
- }
+ //}
 
  
 
@@ -404,22 +367,22 @@ VALUES
 
 
  // fonction supprimant un activiter
- function delActivite($idE)
- {
+ //function delActivite($idE)
+ //{
 
  // appel de la fonction de connexion à la base de données
  // renvoyant une référence à la base de données
- $bd = connexionBd();
+ //$bd = connexionBd();
 
  // préparation de la requête de suppression dans la table activitées
- $requete = $bd->prepare("DELETE FROM activite
- WHERE id = :idEl");
+ //$requete = $bd->prepare("DELETE FROM activite
+ //WHERE id = :idEl");
  // exécution de la requête
- $bd->query("SET NAMES utf8");
- $requete->execute(['idEl' => $idE]);
+ //$bd->query("SET NAMES utf8");
+ //$requete->execute(['idEl' => $idE]);
  
 
- }
+ //}
 
   function delParticipation($idE)
  {
@@ -440,30 +403,7 @@ VALUES
 
 
 
-//Service Web
-function getWebActivite(){
 
-
- $url = "https://localhost:44394/WebServiceGsb.asmx?WSDL";
-
- $options = array(
-    'cache_wsdl'=> 0,
-    'trace'=> 1,
-    'stream_context' => stream_context_create(array(
-    'ssl'=> array(
-        'verify_peer' => false,
-        'verify_peer_name'=> false,
-        'allow_self_signed'=> true
-    )
-)));
-
- $client = new SoapClient($url, $options);
-
- $res = $client->getActivite();
- $lesRes = $res->resultat->string;
-
- echo $lesRes[0];
-}
 
 
 
@@ -496,4 +436,161 @@ $historique = $_SESSION['idComp'];
  return $medocs;
 
  }
+
+
+
+//Service Web
+
+
+function init()
+{
+ini_set('max_execution_time', 0);
+$url = 'https://localhost:44393/WebServiceGSB.asmx?WSDL';
+
+
+$options = array(
+   'cache_wsdl'=> 0,
+   'trace'=>1,
+   'stream_context' => stream_context_create(array(
+      'ssl'=> array(
+         'verify_peer'=> false,
+         'verify_peer_name'=> false,
+         'allow_self_signed'=> true
+)
+)));
+
+$client = new SoapClient($url, $options);
+return $client;
+}
+
+function getMedicaments()
+{
+   $client=init();
+$res = $client->getMedicaments();
+$lesRes= $res->getMedicamentsResult->string;
+$tab=array();
+for($i=0;$i<count($lesRes);$i++)
+   $tab[$i]=explode(";",$lesRes[$i]);
+
+return $tab;
+
+}
+ 
+function getMedicament($idE)
+{
+   $client=init();
+
+$id=array('idMed'=>$idE);
+
+$res = $client->getMedicament($id);
+$lesRes= $res->getMedicamentResult;
+
+$tab=array();
+for($i=0;$i<2;$i++)
+   $tab[$i]=explode(";",$lesRes[$i]);
+
+return $tab;
+}
+
+
+
+
+function interactions($idM)
+{
+   $client=init();
+
+$id=array('idMed'=>$idM);
+
+$res = $client->interactions($id);
+$lesRes= $res->interactionsResult->string;
+
+return $lesRes;
+}
+
+
+
+function getActivites()
+{
+   $client=init();
+$res = $client->getActivites();
+$lesRes= $res->getActivitesResult->string;
+$tab=array();
+for($i=0;$i<count($lesRes);$i++)
+   $tab[$i]=explode(";",$lesRes[$i]);
+
+return $tab;
+}
+
+function getActivite($idE)
+{
+   $client=init();
+$res = $client->getActivites($idE);
+$lesRes= $res->getActivitesResult->string;
+$tabl=array();
+for($i=0;$i<count($lesRes);$i++)
+   $tabl[$i]=explode(";",$lesRes[$i]);
+
+
+return $tabl[1];
+}
+
+function insActivites($nomEl, $dateEl, $lieuEl)
+{
+   $client=init();
+
+
+$parameters=array('nomEle'=>$nomEl, 'dateEle'=>$dateEl, 'lieuEle'=>$lieuEl );
+
+
+$client->insActivites($parameters);
+
+}
+
+function insInscriptions($usernameEl, $passwordEl, $nomEl, $prenomEl)
+{
+   $client=init();
+   $mdpChiffre = hash("sha256", $passwordEl);
+
+$parameters=array('username'=>$usernameEl, 'password'=> $mdpChiffre, 'nom'=> $nomEl, 'prenom'=> $prenomEl);
+
+
+$client->insInscriptions($parameters);
+   
+}
+
+
+function insParticipes($nomPartEl, $prenomPartEl, $activitePartEl, $datePartEl, $lieuPartEl, $idPartEl)
+{
+   $client=init();
+
+
+$parameters=array('nomPart'=>$nomPartEl, 'prenomPart'=>$prenomPartEl, 'activitePart'=>$activitePartEl, 'datePart'=>$datePartEl, 'lieuPart'=>$lieuPartEl, 'idPart'=>$idPartEl );
+
+
+$client->insParticipes($parameters);
+
+}
+
+function NbMail($mail)
+{
+$client=init();
+
+$parameters=array('mail'=> $mail);
+
+
+$res=$client->NbMail($parameters);
+
+return $res->NbMailResult;
+}
+
+function delActivite($idE)
+{
+   $client=init();
+   $parameters=array('idE'=> $idE);
+   $client->delActivite($parameters);
+
+}
+
+
+
 ?>

@@ -93,14 +93,14 @@ function participerActivite()
 {
 // récupération des données (champs) du formulaire
 
- $nomEl = htmlspecialchars($_POST["nomEl"]);
- $prenomEl = htmlspecialchars($_POST["prenomEl"]);
- $activiteEl = htmlspecialchars($_POST["activiteEl"]);
- $dateEl = htmlspecialchars($_POST["dateEl"]);
- $lieuEl = htmlspecialchars($_POST["lieuEl"]);
- $id_ut = htmlspecialchars($_POST["id_ut"]);
+ $nomPartEl = htmlspecialchars($_POST["nomEl"]);
+ $prenomPartEl = htmlspecialchars($_POST["prenomEl"]);
+ $activitePartEl = htmlspecialchars($_POST["activiteEl"]);
+ $datePartEl = htmlspecialchars($_POST["dateEl"]);
+ $lieuPartEl = htmlspecialchars($_POST["lieuEl"]);
+ $idPartEl = htmlspecialchars($_POST["id_ut"]);
  //  appel de la fonction insEleve du modèle
- insParticipes($nomEl,$prenomEl,$activiteEl, $dateEl, $lieuEl, $id_ut);
+ insParticipes($nomPartEl, $prenomPartEl, $activitePartEl, $datePartEl, $lieuPartEl, $idPartEl);
 
 // recherche des employés : appel de la fonction getActivites du modèle
  $activites = getActivites();

@@ -91,14 +91,14 @@ session_start();
                    <form method="POST"
                    action="index.php?action=MSA">
                    <!-- champ caché pour le code de medicament de la ligne -->
-                   <input type="hidden" name="codeElevAction" value="<?php echo $activite['id']; ?>" />
+                   <input type="hidden" name="codeElevAction" value="<?php echo $activite['0']; ?>" />
                    <!-- affichage de la ligne courante -->
 
                    <tr>
-                   <td><?php echo $activite["id"]; ?></td>
-                   <td><?php echo $activite["nom"]; ?></td>
-                   <td><?php echo $activite["Date_Activite"];?></td>
-                   <td><?php echo $activite["Lieu"];?></td>
+                   <td><?php echo $activite["0"]; ?></td>
+                   <td><?php echo $activite["1"]; ?></td>
+                   <td><?php echo $activite["2"];?></td>
+                   <td><?php echo $activite["3"];?></td>
                    
                    
                   <td><input type="submit" class="btn btn-outline-dark" name="part"

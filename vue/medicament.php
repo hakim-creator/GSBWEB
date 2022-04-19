@@ -83,19 +83,19 @@
                    <form method="POST"
                    action="index.php?action=MS">
                    <!-- champ caché pour le code de medicament de la ligne -->
-                   <input type="hidden" name="codeElevAction" value="<?php echo $medicament['id']; ?>" />
+                   <!--<input type="hidden" name="codeElevAction" value="<?php echo $medicament['id']; ?>" />-->
                    <!-- affichage de la ligne courante -->
 
                    <tr>
-                   <td><?php echo $medicament["id"]; ?></td>
-                   <td><?php echo $medicament["nom"]; ?></td>
-                   <td><?php echo $medicament["Description"];?></td>
+                   <td><?php echo $medicament["0"]; ?></td>
+                   <td><?php echo $medicament["1"]; ?></td>
+                   <td><?php echo $medicament["2"];?></td>
                    
                   
-                   <td><?php echo $medicament["Effet_Second"];?></td>
-                   <td><?php echo $medicament["Effet_Therap"];?></td>
-                   <td><?php echo $medicament["positive"];?></td>
-                   <td><?php echo $medicament["negative"];?></td>
+                   <td><?php echo $medicament["3"];?></td>
+                   <td><?php echo $medicament["4"];?></td>
+                   <td><?php echo $medicament["5"];?></td>
+                   <td><?php echo $medicament["6"];?></td>
                   
                    </td>
                    </tr>

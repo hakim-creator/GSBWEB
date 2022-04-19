@@ -15,9 +15,10 @@
     <div class="col col-lg-2">
       <form method="post" action="index.php?action=P">
         
+        
 
         <div class="row mb-3">
-    <label for="nom" class="">id_util</label>
+    <label for="nom" class=""></label>
     <div class="col-sm-12">
       <input type="hidden" class="form-control" id="nom" name="id_ut" value="<?php echo $_SESSION['idComp']; ?>" required>
     </div>
@@ -38,19 +39,19 @@
   <div class="row mb-3">
     <label for="description" class="">Nom de l'activite</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="activiteEl" value="<?php echo $activite['nom']; ?>" required>
+      <input type="text" class="form-control" id="nom" name="activiteEl" value="<?php echo $activite["1"]; ?>" required>
     </div>
   </div>
   <div class="row mb-3">
     <label for="description" class="">Date</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="dateEl" value="<?php echo $activite['Date_Activite']; ?>" required>
+      <input type="text" class="form-control" id="nom" name="dateEl" value="<?php echo $activite["2"]; ?>" required>
     </div>
   </div>
   <div class="row mb-3">
     <label for="description" class="">Adresse</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="lieuEl" value="<?php echo $activite['Lieu']; ?>" required>
+      <input type="text" class="form-control" id="nom" name="lieuEl" value="<?php echo $activite["3"]; ?>" required>
     </div>
   </div>
        
