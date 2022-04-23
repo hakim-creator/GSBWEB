@@ -70,13 +70,19 @@ function chargementMedicament()
 {
    session_start();
    $medicaments = getMedicaments();
+   $idE = htmlspecialchars($_SESSION['idComp']);
+
+   $utilisateur = getProfile($idE);
 // inclusion du formulaire d'ajout d'un Medicament
 require_once "vue/medicament.php";
 }
 
 function chargementFormAjoutMedicament()
 {
+   session_start();
+   $idE = htmlspecialchars($_SESSION['idComp']);
 
+   $utilisateur = getProfile($idE);
    require_once "vue/formAjouterMedicament.php";
 }
 

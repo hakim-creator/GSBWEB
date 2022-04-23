@@ -659,7 +659,7 @@ $client->updPassword($parameters);
 $parameters=array('nomElM'=>$nomElM, 'desElM'=>$desElM, 'secondElM'=>$secondElM, 'therapElM'=>$therapElM, 'positiveElM'=>$positiveElM, 'negativeElM'=>$negativeElM);
 
 
-$client->insActivites($parameters);
+$client->insMedicaments($parameters);
  }
 
 //function getHistoriques($idE)

@@ -108,9 +108,9 @@
 </div>
 </div>
 </div>
-<!--<?php if($_SESSION['typeUtil'] == "A") { ?> 
+<?php if($_SESSION['typeUtil'] == "A") { ?> 
 <a href="index.php?action=FM" class="nav-link active">Ajouter un médicament</a>
-<?php } ?>-->
+<?php } ?>
 <br></br>
 
 <script type="text/javascript" src="js/bootstrap.js"></script>
