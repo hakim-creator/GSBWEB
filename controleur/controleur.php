@@ -4,7 +4,9 @@ function consultMedicaments()
    session_start();
 // recherche des medicaments : appel de la fonction getMedicaments du modèle
  $medicaments = getMedicaments();
+$idE = htmlspecialchars($_SESSION['idComp']);
 
+   $utilisateur = getProfile($idE);
 
  // inclusion du fichier d'affichage des medicaments de la vue
  require_once "vue/medicament.php";
@@ -27,12 +29,20 @@ function chargementProfile()
 {
    session_start();
 
-   $historiques = getHistoriques();
+
+  $idE = htmlspecialchars($_SESSION['idComp']);
+
+
+   $utilisateur = getProfile($idE);
+   $historiques = getHistoriques($idE);
    require_once "vue/profile.php";
 }
 function chargementModifProfile()
 {
    session_start();
+   $idE = htmlspecialchars($_SESSION['idComp']);
+
+   $utilisateur = getProfile($idE);
    require_once "vue/formModifProfile.php";
 }
 function chargementModifPassword()
@@ -48,7 +58,11 @@ require_once "vue/accueil.html";
 
 function chargementActivite()
 {
+   session_start();
    $activites = getActivites();
+   $idE = htmlspecialchars($_SESSION['idComp']);
+
+   $utilisateur = getProfile($idE);
 // inclusion du formulaire d'ajout d'un activite
 require_once "vue/activite.php";
 }
@@ -95,14 +109,17 @@ else
 // utilisateur existant
 // création de 3 variables de session pour le nom et le prénom complet
 // (données personnelles), et le type d'utilisateur
-   $_SESSION['usernameComp']= $utilisateur["nomUtilisateur"];
-   $_SESSION['idComp']= $utilisateur["id"];
-   $_SESSION['passwordComp']= $utilisateur["motDePasse"];
-   $_SESSION['nomComp']= $utilisateur["nomComplet"];
-   $_SESSION['prenomComp']= $utilisateur["prenomComplet"];
-   $_SESSION['typeUtil']= $utilisateur["type"];
+   $_SESSION['usernameComp']= $utilisateur["1"];
+   $_SESSION['idComp']= $utilisateur["0"];
+   $_SESSION['passwordComp']= $utilisateur["2"];
+   $_SESSION['nomComp']= $utilisateur["3"];
+   $_SESSION['prenomComp']= $utilisateur["4"];
+   $_SESSION['typeUtil']= $utilisateur["5"];
 // recherche des eleves : appel de la fonction getEleves du modèle
 $medicaments = getMedicaments();
+$idE = htmlspecialchars($_SESSION['idComp']);
+
+   $utilisateur = getProfile($idE);
 // inclusion du fichier d'affichage des eleves de la vue
 require_once "vue/medicament.php";
 }
@@ -179,38 +196,45 @@ function modifProfile()
 session_start();
  $nomEl = htmlspecialchars($_POST["nomEl"]);
  $prenomEl = htmlspecialchars($_POST["prenomEl"]);
- $usernameEl = htmlspecialchars($_POST["usernameEl"]);
+ $idEl = htmlspecialchars($_POST["idEl"]);
 
  
  // mise à jour dmedicament : appel de la fonction updMedicament 
 
  // du modèle
-updProfile($nomEl, $prenomEl, $usernameEl);
+updProfile($nomEl, $prenomEl, $idEl);
 
 
 
 $medicaments = getMedicaments();
+
+$idE = htmlspecialchars($_SESSION['idComp']);
+
+   $utilisateur = getProfile($idE);
  // inclusion du fichier d'affichage des medicament de la vue
- require_once "vue/profile.php";
+ require_once "vue/medicament.php";
 }
 
 
 function modifPassword()
 {
 // récupération des données du formulaire
- $usernameEl = htmlspecialchars($_POST["usernameEl"]);
+ $idEl = htmlspecialchars($_POST["idEl"]);
  $passwordEl = htmlspecialchars($_POST["passwordEl"]);
 
  
  // mise à jour  : appel de la fonction updMedicament 
 
  // du modèle
-updPassword($passwordEl, $usernameEl);
+updPassword($passwordEl, $idEl);
 
 // recherche medicaments : appel de la fonction getMedicament du modèle
 
 session_start();
 $medicaments = getMedicaments();
+$idE = htmlspecialchars($_SESSION['idComp']);
+
+   $utilisateur = getProfile($idE);
  // inclusion du fichier d'affichage des medicament de la vue
  require_once "vue/medicament.php";
 }
@@ -273,13 +297,15 @@ supprParticipation($idE);
 
 function supprParticipation($idE)
 {
-// suppression de l'activite : appel de la fonction delActivitee du modèle
+// suppression de l'participation : appel de la fonction delPart du modèle
 delParticipation($idE);
 session_start();
-// recherche des Activites : appel de la fonction getActivites du modèle
+// recherche des participation : appel de la fonction getPart du modèle
 $medicaments = getMedicaments();
 // inclusion du fichier d'affichage des medicaments de la vue
+$idE = htmlspecialchars($_SESSION['idComp']);
 
+   $utilisateur = getProfile($idE);
 require_once "vue/medicament.php";
 }
 

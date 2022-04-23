@@ -47,13 +47,13 @@
       <a href="index.php?action=PR" class="nav-link active"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
   <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
   <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-</svg><p><?php echo $_SESSION['nomComp']; ?> <?php echo $_SESSION["prenomComp"]; ?> (<?php echo $_SESSION['usernameComp']; ?>)</p></a> 
+</svg><p><?php echo $utilisateur['nomComplet']; ?> <?php echo $utilisateur["prenomComplet"]; ?> (<?php echo $utilisateur['nomUtilisateur']; ?>)</p></a> 
     </div>
   </div>
 </nav>
 
 <br></br>
-<h4>Bienvenue <?php echo $_SESSION['nomComp']; ?> <?php echo $_SESSION["prenomComp"]; ?>. </h4> 
+<h4>Bienvenue <?php echo $utilisateur['nomComplet']; ?> <?php echo $utilisateur["prenomComplet"]; ?>. </h4> 
 <br></br>
 <h4>Nos médicaments :</h4>
 

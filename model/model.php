@@ -78,28 +78,28 @@ catch(Exception $e)
 
  //}
 
- function insMedicaments($nomElM, $desElM, $secondElM, $therapElM, $positiveElM, $negativeElM)
- {
+ //function insMedicaments($nomElM, $desElM, $secondElM, $therapElM, $positiveElM, $negativeElM)
+ //{
 
  // appel de la fonction de connexion à la base de données
  // renvoyant une référence à la base de données
- $bd = connexionBd();
+ //$bd = connexionBd();
 
  // préparation de la requête d'insertion dans la table eleves
- $requete = $bd->prepare("INSERT INTO medicament(nom, Description, Effet_Second, Effet_Therap, positive, negative)
-VALUES
-(:nomEle, :desEle, :secondEle, :therapEle, :positiveEle, :negativeEle)");
+ //$requete = $bd->prepare("INSERT INTO medicament(nom, Description, Effet_Second, Effet_Therap, positive, negative)
+//VALUES
+//(:nomEle, :desEle, :secondEle, :therapEle, :positiveEle, :negativeEle)");
 
 
  // exécution de la requête
- $bd->query("SET NAMES utf8");
- $requete->execute(['nomEle' => $nomElM,
- 'desEle' => $desElM,
- 'secondEle' => $secondElM,
- 'therapEle' => $therapElM,
-'positiveEle' => $positiveElM,
-'negativeEle' => $negativeElM]);
-}
+ //$bd->query("SET NAMES utf8");
+ //$requete->execute(['nomEle' => $nomElM,
+ //'desEle' => $desElM,
+ //'secondEle' => $secondElM,
+ //'therapEle' => $therapElM,
+//'positiveEle' => $positiveElM,
+//'negativeEle' => $negativeElM]);
+//}
 
 
 
@@ -125,46 +125,46 @@ VALUES
  'idEleve' => $idEl]);
 
  }
-  function updProfile($nomEl, $prenomEl, $usernameEl)
- {
+  //function updProfile($nomEl, $prenomEl, $usernameEl)
+ //{
    
  // appel de la fonction de connexion à la base de données
  // renvoyant une référence à la base de données
- $bd = connexionBd();
-$user = $_SESSION['usernameComp'];
+ //$bd = connexionBd();
+//$user = $_SESSION['usernameComp'];
  // préparation de la requête de mise à jour dans la table activite
- $requete = $bd->prepare("UPDATE utilisateurs
- SET nomComplet = :nomM, prenomComplet = :prenomM, nomUtilisateur = :usernameM
- WHERE nomUtilisateur = :usernameM");
+ //$requete = $bd->prepare("UPDATE utilisateurs
+ //SET nomComplet = :nomM, prenomComplet = :prenomM, nomUtilisateur = :usernameM
+ //WHERE nomUtilisateur = :usernameM");
 
  // exécution de la requête
- $bd->query("SET NAMES utf8");
- $requete->execute(['nomM' => $nomEl,
- 'prenomM' => $prenomEl,
-'usernameM' => $usernameEl]);
+ //$bd->query("SET NAMES utf8");
+ //$requete->execute(['nomM' => $nomEl,
+ //'prenomM' => $prenomEl,
+//'usernameM' => $usernameEl]);
 
- }
+ //}
 
- function updPassword($passwordEl, $usernameEl)
- {
+ //function updPassword($passwordEl, $usernameEl)
+ //{
 
  // appel de la fonction de connexion à la base de données
  // renvoyant une référence à la base de données
- $bd = connexionBd();
-$mdpChiffre = hash("sha256", $passwordEl);
+ //$bd = connexionBd();
+//$mdpChiffre = hash("sha256", $passwordEl);
 
  // préparation de la requête de mise à jour dans la table activite
- $requete = $bd->prepare("UPDATE utilisateurs
- SET  motDePasse = :passwordM
- WHERE nomUtilisateur = :usernameM");
+ //$requete = $bd->prepare("UPDATE utilisateurs
+ //SET  motDePasse = :passwordM
+ //WHERE nomUtilisateur = :usernameM");
 
  // exécution de la requête
- $bd->query("SET NAMES utf8");
- $requete->execute([
- 'passwordM' => $mdpChiffre,
-'usernameM' => $usernameEl]);
+ //$bd->query("SET NAMES utf8");
+ //$requete->execute([
+ //'passwordM' => $mdpChiffre,
+//'usernameM' => $usernameEl]);
 
- }
+ //}
 
 
  // fonction supprimant un activité
@@ -190,24 +190,24 @@ $mdpChiffre = hash("sha256", $passwordEl);
 
 
 
-function getUtilisateur($nomU, $motDePasseU)
-{
-$mdpChiffre = hash("sha256", $motDePasseU);
+//function getUtilisateur($nomU, $motDePasseU)
+//{
+//$mdpChiffre = hash("sha256", $motDePasseU);
 // appel de la fonction de connexion à la base de données
 // renvoyant une référence à la base de données
-$bd = connexionBd();
+//$bd = connexionBd();
 // préparation de la requête de sélection dans la table utilisateurs
-$requete = $bd->prepare("SELECT * FROM utilisateurs
-WHERE nomUtilisateur = :nomUt
-AND motDePasse = :motDePasseUt");
+//$requete = $bd->prepare("SELECT * FROM utilisateurs
+//WHERE nomUtilisateur = :nomUt
+//AND motDePasse = :motDePasseUt");
 // exécution de la requête et renvoi du résultat
-$bd->query("SET NAMES utf8");
-$requete->execute(['nomUt' => $nomU,
-'motDePasseUt' => $mdpChiffre]);
+//$bd->query("SET NAMES utf8");
+//$requete->execute(['nomUt' => $nomU,
+//'motDePasseUt' => $mdpChiffre]);
 // récupération de la ligne du résultat
-$util = $requete->fetch();
-return $util;
-}
+//$util = $requete->fetch();
+//return $util;
+//}
 
 
 
@@ -338,32 +338,51 @@ return $util;
 
  //}
 
- 
-
-
-
-
- // fonction mettant à jour un activite
- function updActivite($idEl, $nomEl, $dateEl,$lieuEl)
+ function getProfile($idE)
  {
 
  // appel de la fonction de connexion à la base de données
  // renvoyant une référence à la base de données
  $bd = connexionBd();
 
- // préparation de la requête de mise à jour dans la table activite
- $requete = $bd->prepare("UPDATE activite
- SET nom = :nomM, Date_Activite = :dateM, Lieu = :lieuM
+ // préparation de la requête de sélection dans la table eleves
+ $requete = $bd->prepare("SELECT * FROM utilisateurs
  WHERE id = :idEleve");
-
  // exécution de la requête
  $bd->query("SET NAMES utf8");
- $requete->execute(['nomM' => $nomEl,
- 'dateM' => $dateEl,
- 'lieuM' => $lieuEl,
- 'idEleve' => $idEl]);
+ $requete->execute(['idEleve' => $idE]);
+
+ // récupération de la ligne du résultat
+ $utilis = $requete->fetch();
+
+ return $utilis;
 
  }
+
+
+
+
+ // fonction mettant à jour un activite
+ //function updActivite($idEl, $nomEl, $dateEl,$lieuEl)
+ //{
+
+ // appel de la fonction de connexion à la base de données
+ // renvoyant une référence à la base de données
+ //$bd = connexionBd();
+
+ // préparation de la requête de mise à jour dans la table activite
+ //$requete = $bd->prepare("UPDATE activite
+ //SET nom = :nomM, Date_Activite = :dateM, Lieu = :lieuM
+ //WHERE id = :idEleve");
+
+ // exécution de la requête
+ //$bd->query("SET NAMES utf8");
+ //$requete->execute(['nomM' => $nomEl,
+ //'dateM' => $dateEl,
+ //'lieuM' => $lieuEl,
+ //'idEleve' => $idEl]);
+
+ //}
 
 
  // fonction supprimant un activiter
@@ -384,22 +403,22 @@ return $util;
 
  //}
 
-  function delParticipation($idE)
- {
+ // function delParticipation($idE)
+ //{
 
  // appel de la fonction de connexion à la base de données
  // renvoyant une référence à la base de données
- $bd = connexionBd();
+ //$bd = connexionBd();
 
  // préparation de la requête de suppression dans la table activitées
- $requete = $bd->prepare("DELETE FROM participer
- WHERE id = :idEl");
+ //$requete = $bd->prepare("DELETE FROM participer
+ //WHERE id = :idEl");
  // exécution de la requête
- $bd->query("SET NAMES utf8");
- $requete->execute(['idEl' => $idE]);
+ //$bd->query("SET NAMES utf8");
+ //$requete->execute(['idEl' => $idE]);
  
 
- }
+ //}
 
 
 
@@ -495,17 +514,7 @@ return $tab;
 
 
 
-function interactions($idM)
-{
-   $client=init();
 
-$id=array('idMed'=>$idM);
-
-$res = $client->interactions($id);
-$lesRes= $res->interactionsResult->string;
-
-return $lesRes;
-}
 
 
 
@@ -524,14 +533,15 @@ return $tab;
 function getActivite($idE)
 {
    $client=init();
-$res = $client->getActivites($idE);
-$lesRes= $res->getActivitesResult->string;
+   $parameters=array('idE'=>$idE);
+$res = $client->getActivite($parameters);
+$lesRes= $res->getActiviteResult;
 $tabl=array();
-for($i=0;$i<count($lesRes);$i++)
-   $tabl[$i]=explode(";",$lesRes[$i]);
+
+   $tabl=explode(";",$lesRes);
 
 
-return $tabl[1];
+return $tabl;
 }
 
 function insActivites($nomEl, $dateEl, $lieuEl)
@@ -559,29 +569,19 @@ $client->insInscriptions($parameters);
 }
 
 
-function insParticipes($nomPartEl, $prenomPartEl, $activitePartEl, $datePartEl, $lieuPartEl, $idPartEl)
+function insParticipes($nomPartEl, $prenomPartEl, $activitePartEl, $datePartEl, $lieuPartEl, $idPartEl, $idActEl)
 {
    $client=init();
 
 
-$parameters=array('nomPart'=>$nomPartEl, 'prenomPart'=>$prenomPartEl, 'activitePart'=>$activitePartEl, 'datePart'=>$datePartEl, 'lieuPart'=>$lieuPartEl, 'idPart'=>$idPartEl );
+$parameters=array('nomPart'=>$nomPartEl, 'prenomPart'=>$prenomPartEl, 'activitePart'=>$activitePartEl, 'datePart'=>$datePartEl, 'lieuPart'=>$lieuPartEl, 'idPart'=>$idPartEl, 'idAct'=>$idActEl );
 
 
 $client->insParticipes($parameters);
 
 }
 
-function NbMail($mail)
-{
-$client=init();
 
-$parameters=array('mail'=> $mail);
-
-
-$res=$client->NbMail($parameters);
-
-return $res->NbMailResult;
-}
 
 function delActivite($idE)
 {
@@ -591,6 +591,91 @@ function delActivite($idE)
 
 }
 
+function getUtilisateur($nomU, $motDePasseU)
+{
+   $client=init();
+   $mdpChiffre = hash("sha256", $motDePasseU);
+   $parameters=array('nomU'=> $nomU, 'motDePasseU'=> $mdpChiffre);
+   $res = $client->getUtilisateur($parameters);
+$lesRes= $res->getUtilisateurResult;
+$tabl=array();
 
+   $tabl=explode(";",$lesRes);
+
+
+return $tabl;
+
+}
+
+ function updActivite($idEl, $nomEl, $dateEl,$lieuEl)
+ {
+   $client=init();
+
+
+$parameters=array('idE'=>$idEl,'nom'=>$nomEl, 'date_activite'=>$dateEl, 'Lieu'=>$lieuEl );
+
+
+$client->updActivite($parameters);
+ }
+
+function delParticipation($idE)
+{
+   $client=init();
+   $parameters=array('idE'=> $idE);
+   $client->delParticipation($parameters);
+}
+
+//mise a jour profil
+function updProfile($nomEl, $prenomEl, $idEl)
+{
+   $client=init();
+
+
+$parameters=array('nom'=>$nomEl, 'prenom'=>$prenomEl, 'idE'=>$idEl );
+
+
+$client->updProfile($parameters);
+}
+
+
+
+function updPassword($passwordEl, $idEl)
+{
+   $client=init();
+
+$mdpChiffre = hash("sha256", $passwordEl);
+$parameters=array('password'=>$mdpChiffre, 'idEl'=>$idEl );
+
+
+$client->updPassword($parameters);
+}
+
+
+ function insMedicaments($nomElM, $desElM, $secondElM, $therapElM, $positiveElM, $negativeElM)
+ {
+   $client=init();
+
+
+$parameters=array('nomElM'=>$nomElM, 'desElM'=>$desElM, 'secondElM'=>$secondElM, 'therapElM'=>$therapElM, 'positiveElM'=>$positiveElM, 'negativeElM'=>$negativeElM);
+
+
+$client->insActivites($parameters);
+ }
+
+//function getHistoriques($idE)
+//{
+   
+
+  // $client=init();
+   //$parameters=array('idE'=>$idE);
+//$res = $client->getHistoriques($parameters);
+//$lesRes= $res->getHistoriquesResult;
+//$tab=array();
+//for($i=0;$i<count($lesRes);$i++)
+  // $tab=explode(";",$lesRes);
+
+//return $tab;
+
+//}
 
 ?>

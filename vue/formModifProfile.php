@@ -22,20 +22,20 @@
   <div class="row mb-3">
     
     <div class="col-sm-12">
-     <input type="hidden" name="usernameEl" class="form-control" value="<?php echo $_SESSION['usernameComp']; ?>">
+     <input type="hidden" name="idEl" class="form-control" value="<?php echo $_SESSION['idComp']; ?>">
     </div>
   </div>
   <div class="row mb-3">
     <label for="description" class="">Nom :</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" name="nomEl" value="<?php echo $_SESSION['nomComp']; ?>">
+      <input type="text" class="form-control" name="nomEl" value="<?php echo $utilisateur['nomComplet']; ?>">
       
     </div>
   </div>
   <div class="row mb-3">
     <label for="description" class="">Prénom :</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" name="prenomEl" value="<?php echo $_SESSION['prenomComp']; ?>">
+      <input type="text" class="form-control" name="prenomEl" value="<?php echo $utilisateur['prenomComplet']; ?>">
      
     </div>
   </div>

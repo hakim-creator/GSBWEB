@@ -20,9 +20,9 @@
         
   
   <div class="row mb-3">
-    <label for="description" class="">Confirmez votre nom d'utilisateur :</label>
+    <label for="description" class=""></label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" name="usernameEl" value="">
+      <input type="hidden" class="form-control" name="idEl" value="<?php echo $_SESSION['idComp'] ?>">
     </div>
   </div>
   

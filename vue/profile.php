@@ -38,28 +38,29 @@
                         <form method="post" action="index.php?action=PRM">
        
         
+          
+                        
   
                           <div class="row mb-3">
                             <label for="description" class="">Nom d'utilisateur :</label>
                             <div class="col-sm-12">
-                              <p><?php echo $_SESSION['usernameComp']; ?></p>
+                              <p><?php echo $utilisateur['nomUtilisateur']; ?></p>
                             </div>
                           </div>
                           <div class="row mb-3">
                             <label for="description" class="">Nom :</label>
                             <div class="col-sm-12">
-                              <p><?php echo $_SESSION['nomComp']; ?></p>
+                              <p><?php echo $utilisateur['nomComplet']; ?></p>
                             </div>
                           </div>
                           <div class="row mb-3">
                             <label for="description" class="">Prénom :</label>
                             <div class="col-sm-12">
-                              <p><?php echo $_SESSION['prenomComp']; ?></p>
+                              <p><?php echo $utilisateur['prenomComplet']; ?></p>
                             </div>
                           </div>
 
  
-  
 
        
   
@@ -117,39 +118,39 @@
        
                     
                       <?php foreach ($historiques as $historique): ?>
-                        <input type="hidden" name="codeProfileAction" value="<?php echo $historique['id']; ?>" />
+                        <input type="hidden" name="codeProfileAction" value="<?php echo $historique['0']; ?>" />
 
                    
                           
                           <div class="row mb-3">
                             <label for="description" class="">Nom  :</label>
                             <div class="col-sm-12">
-                              <p><?php echo $historique["nom"]; ?></p>
+                              <p><?php echo $historique["1"]; ?></p>
                             </div>
                           </div>
                           <div class="row mb-3">
                             <label for="description" class="">Prénom :</label>
                             <div class="col-sm-12">
-                              <p><?php echo $historique["prenom"]; ?></p>
+                              <p><?php echo $historique["2"]; ?></p>
                             </div>
                           </div>
                           <div class="row mb-3">
                             <label for="description" class="">Nom de l'activité :</label>
                             <div class="col-sm-12">
-                              <p><?php echo $historique["activite"]; ?></p>
+                              <p><?php echo $historique["3"]; ?></p>
                             </div>
                           </div>
                           
                           <div class="row mb-3">
                             <label for="description" class="">Adresse :</label>
                             <div class="col-sm-12">
-                              <p><?php echo $historique['Lieu']; ?></p>
+                              <p><?php echo $historique['5']; ?></p>
                             </div>
                           </div>
                           <div class="row mb-3">
                             <label for="description" class="">Date :</label>
                             <div class="col-sm-12">
-                              <p><?php echo $historique['date_activite']; ?></p>
+                              <p><?php echo $historique['4']; ?></p>
                             </div>
                           </div>
 

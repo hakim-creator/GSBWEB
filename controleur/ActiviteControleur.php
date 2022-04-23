@@ -63,6 +63,9 @@ function consultActivites()
 {
 // recherche des medicaments : appel de la fonction getMedicaments du modèle
  $activites = getActivites();
+ $idE = htmlspecialchars($_SESSION['idComp']);
+
+   $utilisateur = getProfile($idE);
 
 
  // inclusion du fichier d'affichage des medicaments de la vue
@@ -99,10 +102,11 @@ function participerActivite()
  $datePartEl = htmlspecialchars($_POST["dateEl"]);
  $lieuPartEl = htmlspecialchars($_POST["lieuEl"]);
  $idPartEl = htmlspecialchars($_POST["id_ut"]);
+ $idActEl = htmlspecialchars($_POST["id_part"]);
  //  appel de la fonction insEleve du modèle
- insParticipes($nomPartEl, $prenomPartEl, $activitePartEl, $datePartEl, $lieuPartEl, $idPartEl);
+ insParticipes($nomPartEl, $prenomPartEl, $activitePartEl, $datePartEl, $lieuPartEl, $idPartEl, $idActEl);
 
-// recherche des employés : appel de la fonction getActivites du modèle
+// recherche des activite : appel de la fonction getActivites du modèle
  $activites = getActivites();
 
  // inclusion du fichier d'affichage des employés de la vue
@@ -153,7 +157,9 @@ updActivite($idEl, $nomEl, $dateEl, $lieuEl);
 
 // recherche des activites : appel de la fonction getActivites du modèle
  $activites = getActivites();
+$idE = htmlspecialchars($_SESSION['idComp']);
 
+   $utilisateur = getProfile($idE);
  // inclusion du fichier d'affichage des activites de la vue
  require_once "vue/activite.php";
 }

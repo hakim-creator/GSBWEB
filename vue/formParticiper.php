@@ -17,6 +17,13 @@
         
         
 
+
+<div class="row mb-3">
+    <label for="nom" class=""></label>
+    <div class="col-sm-12">
+      <input type="text" class="form-control" id="nom" name="id_part" value="<?php echo $activite["0"]; ?>" required>
+    </div>
+  </div>
         <div class="row mb-3">
     <label for="nom" class=""></label>
     <div class="col-sm-12">
