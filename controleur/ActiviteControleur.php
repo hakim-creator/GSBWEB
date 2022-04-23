@@ -117,7 +117,7 @@ function participerActivite()
 
 function aiguillageActivite()
 {
-
+session_start();
 // récupération du code activite
 $idE = htmlspecialchars($_POST["codeElevAction"]);
 // aiguillage
@@ -134,6 +134,9 @@ $idE = htmlspecialchars($_POST["codeElevAction"]);
    	// recherche de l'activite correspondant à ce code
    // via la fonction getActivite du modèle
    $activite = getActivite($idE);
+   $idE = htmlspecialchars($_SESSION['idComp']);
+
+   $utilisateur = getProfile($idE);
    // inclusion du formulaire de de participation (vue)
    require_once "vue/formParticiper.php";
    }

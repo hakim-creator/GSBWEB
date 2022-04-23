@@ -33,13 +33,13 @@
         <div class="row mb-3">
     <label for="nom" class="">Nom</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="nomEl" value="<?php echo $_SESSION['nomComp']; ?>" required>
+      <input type="text" class="form-control" id="nom" name="nomEl" value="<?php echo $utilisateur['nomComplet']; ?>" required>
     </div>
   </div>
   <div class="row mb-3">
     <label for="description" class="">Prenom</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" name="prenomEl" id="prenom" value="<?php echo $_SESSION['prenomComp']; ?>" required>
+      <input type="text" class="form-control" name="prenomEl" id="prenom" value="<?php echo $utilisateur['prenomComplet']; ?>" required>
     </div>
   </div>
   

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 17 avr. 2022 à 08:21
+-- Généré le : sam. 23 avr. 2022 à 14:57
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -33,57 +33,28 @@ CREATE TABLE IF NOT EXISTS `activite` (
   `nom` varchar(700) NOT NULL,
   `Date_Activite` varchar(500) NOT NULL,
   `Lieu` varchar(500) NOT NULL,
-  `id_Responsable` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_Responsable` (`id_Responsable`)
-) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `activite`
 --
 
-INSERT INTO `activite` (`id`, `nom`, `Date_Activite`, `Lieu`, `id_Responsable`) VALUES
-(36, 'Cinema', '05/12/2029', '11 aller occitanie, 31600 Labege', NULL),
-(33, 'Course de pneus', '12/26/2022', '32 Boulvard cominge, 81000 Albi', NULL),
-(34, 'symposiume', '12/26/2022', '58 Rue de la fourg, 31100 Toulouse', NULL);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `contenir`
---
-
-DROP TABLE IF EXISTS `contenir`;
-CREATE TABLE IF NOT EXISTS `contenir` (
-  `Id_medicament` int(11) DEFAULT NULL,
-  `Id_Effet_Therap` int(11) DEFAULT NULL,
-  KEY `Id_medicament` (`Id_medicament`),
-  KEY `Id_Effet_Therap` (`Id_Effet_Therap`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
+INSERT INTO `activite` (`id`, `nom`, `Date_Activite`, `Lieu`) VALUES
+(44, 'match de foot', '16/05/2056', '29 Rue de la madeleine, 31023 Toulouse'),
+(34, 'symposiume', '12/26/2022', '58 Rue de la fourg, 31100 Toulouse'),
+(47, 'Concour dicte', '05/12/2029', '12 Boulvard cominge, 81000 Albi'),
+(46, 'Sortie musée', '12/26/2022', '25 Rue de manahattan, 31400 Toulouse');
 
 --
--- Structure de la table `effet_second`
+-- Déclencheurs `activite`
 --
-
-DROP TABLE IF EXISTS `effet_second`;
-CREATE TABLE IF NOT EXISTS `effet_second` (
-  `Id_Effet` int(11) DEFAULT NULL,
-  `effet_secondaire` varchar(500) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `effet_therap`
---
-
-DROP TABLE IF EXISTS `effet_therap`;
-CREATE TABLE IF NOT EXISTS `effet_therap` (
-  `Id_Effet_Therap` int(11) DEFAULT NULL,
-  `Effet_Ther` varchar(500) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+DROP TRIGGER IF EXISTS `sup_activite`;
+DELIMITER $$
+CREATE TRIGGER `sup_activite` BEFORE DELETE ON `activite` FOR EACH ROW DELETE FROM participer
+WHERE id_part = OLD.id
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -136,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `medicament` (
   `Id_medicament2` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `Id_medicament2` (`Id_medicament2`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `medicament`
@@ -162,19 +133,23 @@ CREATE TABLE IF NOT EXISTS `participer` (
   `Lieu` varchar(500) NOT NULL,
   `dateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_util` int(11) DEFAULT NULL,
+  `id_part` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `id_util` (`id_util`)
-) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+  KEY `id_util` (`id_util`),
+  KEY `id_part` (`id_part`)
+) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `participer`
 --
 
-INSERT INTO `participer` (`id`, `nom`, `prenom`, `activite`, `date_activite`, `Lieu`, `dateTime`, `id_util`) VALUES
-(17, 'Hakim', 'Ben', 'Course de pneus', '12/26/2022', '32 Boulvard cominge, 81000 Albi', '2022-04-16 10:18:54', 17),
-(18, 'Hakim', 'Ben', 'symposiume', '12/26/2022', '58 Rue de la fourg, 31100 Toulouse', '2022-04-16 11:10:01', 17),
-(21, 'M\'LOA', 'Hakim', 'Course de pneus', '12/26/2022', '32 Boulvard cominge, 81000 Albi', '2022-04-17 09:51:07', 17),
-(23, 'Ben', 'Hakim', 'Course de pneus', '12/26/2022', '32 Boulvard cominge, 81000 Albi', '2022-04-17 10:11:28', 18);
+INSERT INTO `participer` (`id`, `nom`, `prenom`, `activite`, `date_activite`, `Lieu`, `dateTime`, `id_util`, `id_part`) VALUES
+(43, 'ALI', 'Hakim', 'Sortie musée', '12/26/2022', '25 Rue de manahattan, 31400 Toulouse', '2022-04-22 21:43:37', 17, 46),
+(42, 'ALI', 'Hakim', 'symposiume', '12/26/2022', '58 Rue de la fourg, 31100 Toulouse', '2022-04-22 21:43:31', 17, 34),
+(41, 'ALI', 'Hakim', 'Sortie musée', '12/26/2022', '25 Rue de manahattan, 31400 Toulouse', '2022-04-22 18:55:10', 17, 46),
+(38, 'bruce', 'wayne', 'symposiume', '12/26/2022', '58 Rue de la fourg, 31100 Toulouse', '2022-04-22 18:33:03', 19, 34),
+(39, 'TEST', 'TER', 'Sortie musée', '12/26/2022', '25 Rue de manahattan, 31400 Toulouse', '2022-04-22 18:36:59', 28, 46),
+(44, 'ALI', 'Hakim', 'Sortie musée', '12/26/2022', '25 Rue de manahattan, 31400 Toulouse', '2022-04-23 12:36:36', 17, 46);
 
 -- --------------------------------------------------------
 
@@ -198,7 +173,14 @@ CREATE TABLE IF NOT EXISTS `probleme` (
   KEY `Id_Salarie` (`Id_Salarie`),
   KEY `Id_technicien` (`Id_technicien`),
   KEY `Id_Materiel` (`Id_Materiel`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `probleme`
+--
+
+INSERT INTO `probleme` (`Id_Probleme`, `objet`, `nivUrgence`, `dateIncid`, `zoneInter`, `etats`, `priseCharge`, `Id_Salarie`, `Id_technicien`, `Id_Materiel`) VALUES
+(1, 'kjhjk', 'hjkhkjhk', '2022-04-21 09:38:56', 'hkjhkj', 'hkjhkjh', 'hjkhjk', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -254,7 +236,17 @@ CREATE TABLE IF NOT EXISTS `salarie` (
 
 INSERT INTO `salarie` (`Id_Salarie`, `nom`, `Prenom`, `Matricule`, `dateAmb`, `Region`, `email`, `poste`, `identifiant`, `Mot_Passe`, `type`) VALUES
 (1, 'ali', 'ben', 'AB1', '07/10/21', 'Occitanie', 'fffdffzef@efezfef', 'technicien', 'aliben', 'benali', 'A'),
-(3, 'Furry', 'Ali', 'AB1', '07/10/21', 'Occitanie', 'fffdffzef@efezfef', 'technicien', 'furry', 'furry1', 'U');
+(3, 'vjhgjghj', 'ghjglhg', 'hlghgjh', 'ghjgjg', 'hjgjhgjh', 'gjhgjhg', 'hjghjg', 'jhgjjh', 'gjhgjhg', 'gjgj');
+
+--
+-- Déclencheurs `salarie`
+--
+DROP TRIGGER IF EXISTS `sup_salari`;
+DELIMITER $$
+CREATE TRIGGER `sup_salari` BEFORE DELETE ON `salarie` FOR EACH ROW DELETE FROM probleme
+WHERE id_Salarie = OLD.id_Salarie
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -304,17 +296,30 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `prenomComplet` varchar(500) NOT NULL,
   `type` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`id`, `nomUtilisateur`, `motDePasse`, `nomComplet`, `prenomComplet`, `type`) VALUES
-(18, 'benali', '296610ba95a48961985e84910244214082c93aed717365ed562e75d0ad423a7c', 'Ben', 'Hakim', 'U'),
+(27, 'alan', '296610ba95a48961985e84910244214082c93aed717365ed562e75d0ad423a7c', 'Alawa', 'Nat', NULL),
+(25, 'hkhkjh', 'jkhjkhjk', 'hjkhkjhk', 'jhkjhkj', NULL),
+(26, 'gjhg', '768ac8720cdeb59227cf95e98b66560ef03d8bc9a90d721779e76e68fb42f5e6', 'jhgjhg', 'hjgjhg', NULL),
 (24, 'veuvenoir', '296610ba95a48961985e84910244214082c93aed717365ed562e75d0ad423a7c', 'Romanov', 'Natacha', NULL),
 (19, 'bruce', '296610ba95a48961985e84910244214082c93aed717365ed562e75d0ad423a7c', 'bruce', 'wayne', NULL),
-(17, 'hakimaliben', '296610ba95a48961985e84910244214082c93aed717365ed562e75d0ad423a7c', 'M\'LOA', 'Hakim', 'A');
+(17, 'hakimaliben', '296610ba95a48961985e84910244214082c93aed717365ed562e75d0ad423a7c', 'ALI', 'Hakim', 'A'),
+(28, 'test', '296610ba95a48961985e84910244214082c93aed717365ed562e75d0ad423a7c', 'TEST', 'TER', NULL);
+
+--
+-- Déclencheurs `utilisateurs`
+--
+DROP TRIGGER IF EXISTS `sup_util`;
+DELIMITER $$
+CREATE TRIGGER `sup_util` BEFORE DELETE ON `utilisateurs` FOR EACH ROW DELETE FROM participer
+WHERE id_util = OLD.id
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
