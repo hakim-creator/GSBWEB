@@ -1,3 +1,6 @@
+<?php 
+session_start();
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +13,7 @@
 
 	<p>Inscription prise en compte </p>
 
-  <a href="index.php?action=C">Continuer</a>
+  <a href="index.php?action=C" class="nav-link active">Continuer</a>
 
 <script type="text/javascript" src="js/bootstrap.js"></script>
 

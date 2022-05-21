@@ -6,43 +6,55 @@ session_start();
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>GSB</title>
+	<title>Connexion</title>
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
 
   <div class="container">
+    <div class="row justify-content-md-center">
+    <div class="col col-lg-3">
+
   <form method="post"
 action="index.php?action=RU">
-<p>
-<label for="inom">Votre nom
-d'utilisateur</label><br />
-<input type="text" name="nomU" id="inom"
+
+<div class="row mb-3">
+<label for="inom">Votre nom d'utilisateur</label><br />
+<div class="col-sm-12">
+<input type="text" class="form-control" name="nomU" id="inom"
 value="<?php
 if (isset($_SESSION["nomUtil"]))
 echo $_SESSION["nomUtil"];
 ?>"
 />
-</p>
+</div>
+</div>
+
 <p>
 <label for="imdp">Votre mot de passe</label><br />
-<input type="password" name="motDePasseU"
+<input type="password" class="form-control" name="motDePasseU"
 id="imdp" />
 </p>
 <br /><br />
 <p>
-<input type="submit" value="Se connecter" />
+<input type="submit" value="Se connecter" class="btn btn-outline-dark" />
 </p>
 <br />
 </form>
-</div>
-<a href="inscription.php"></a>
+    <p>
+     <a href="index.php?action=IS" class="nav-link active">Pas encore enregistrer ? S'inscrire</a>
+    </p>
 
-<p>
-     <a href="index.php?action=IS">
-     Pas encore enregistrer ? S'inscrire</a>
- </p>
+    <div> 
+     <a href="index.php" class="nav-link active">Retourner a l'accueil</a>  
+    </div>
+
+</div>
+</div>
+</div>
+
+
 
 
 <script type="text/javascript" src="js/bootstrap.js"></script>

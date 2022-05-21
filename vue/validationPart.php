@@ -1,3 +1,6 @@
+<?php 
+session_start();
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +13,7 @@
 
 	<p>Participation prise en compte </p>
 
-  <a href="index.php?action=AA">Retour</a>
+  <a href="index.php?action=AA" class="nav-link active">Retour</a>
 
 <script type="text/javascript" src="js/bootstrap.js"></script>
 

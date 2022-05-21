@@ -1,3 +1,6 @@
+<?php 
+session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="fr">
 	 <head>
@@ -14,7 +17,7 @@
 
 		 <div class="container">
   <div class="row justify-content-md-center">
-    <div class="col col-lg-2">
+    <div class="col col-lg-4">
       <form method="post" action="index.php?action=A">
        
         
@@ -33,9 +36,9 @@
     </div>
   </div>
   <div class="row mb-3">
-    <label for="description" class="">Lieu</label>
+    <label for="description" class="">Adresse</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="lieuEl" value="" placeholder="" required>
+      <input type="text" class="form-control" id="nom" name="lieuEl" value="" placeholder="56 Avenue du comminge, 31270, Cugnaux " required>
     </div>
   </div>
   
@@ -50,7 +53,7 @@ value="Valider les modifications" class="btn btn-outline-dark"/>
 
 <br></br>
 		<p>
-		 <a href="index.php?action=AA">
+		 <a href="index.php?action=AA" class="nav-link active">
 		 Annuler : Retour au menu des activités</a>
 		 </p>
     </div>

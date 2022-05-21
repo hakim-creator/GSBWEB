@@ -15,35 +15,50 @@
     <div class="col col-lg-2">
       <form method="post" action="index.php?action=P">
         
+        
+
+
+<div class="row mb-3">
+    <label for="nom" class=""></label>
+    <div class="col-sm-12">
+      <input type="text" class="form-control" id="nom" name="id_part" value="<?php echo $activite["0"]; ?>" required>
+    </div>
+  </div>
+        <div class="row mb-3">
+    <label for="nom" class=""></label>
+    <div class="col-sm-12">
+      <input type="hidden" class="form-control" id="nom" name="id_ut" value="<?php echo $_SESSION['idComp']; ?>" required>
+    </div>
+  </div>
         <div class="row mb-3">
     <label for="nom" class="">Nom</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="nomEl" value="<?php echo $_SESSION['nomComp']; ?>">
+      <input type="text" class="form-control" id="nom" name="nomEl" value="<?php echo $utilisateur['nomComplet']; ?>" required>
     </div>
   </div>
   <div class="row mb-3">
     <label for="description" class="">Prenom</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" name="prenomEl" id="prenom" value="<?php echo $_SESSION['prenomComp']; ?>">
+      <input type="text" class="form-control" name="prenomEl" id="prenom" value="<?php echo $utilisateur['prenomComplet']; ?>" required>
     </div>
   </div>
   
   <div class="row mb-3">
     <label for="description" class="">Nom de l'activite</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="activiteEl" value="<?php echo $activite['nom']; ?>">
+      <input type="text" class="form-control" id="nom" name="activiteEl" value="<?php echo $activite["1"]; ?>" required>
     </div>
   </div>
   <div class="row mb-3">
     <label for="description" class="">Date</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="dateEl" value="<?php echo $activite['Date_Activite']; ?>">
+      <input type="text" class="form-control" id="nom" name="dateEl" value="<?php echo $activite["2"]; ?>" required>
     </div>
   </div>
   <div class="row mb-3">
-    <label for="description" class="">Lieu</label>
+    <label for="description" class="">Adresse</label>
     <div class="col-sm-12">
-      <input type="text" class="form-control" id="nom" name="lieuEl" value="<?php echo $activite['Lieu']; ?>">
+      <input type="text" class="form-control" id="nom" name="lieuEl" value="<?php echo $activite["3"]; ?>" required>
     </div>
   </div>
        

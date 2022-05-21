@@ -63,6 +63,9 @@ function consultActivites()
 {
 // recherche des medicaments : appel de la fonction getMedicaments du modèle
  $activites = getActivites();
+ $idE = htmlspecialchars($_SESSION['idComp']);
+
+   $utilisateur = getProfile($idE);
 
 
  // inclusion du fichier d'affichage des medicaments de la vue
@@ -93,16 +96,17 @@ function participerActivite()
 {
 // récupération des données (champs) du formulaire
 
- $nomEl = htmlspecialchars($_POST["nomEl"]);
- $prenomEl = htmlspecialchars($_POST["prenomEl"]);
- $activiteEl = htmlspecialchars($_POST["activiteEl"]);
- $dateEl = htmlspecialchars($_POST["dateEl"]);
- $lieuEl = htmlspecialchars($_POST["lieuEl"]);
-
+ $nomPartEl = htmlspecialchars($_POST["nomEl"]);
+ $prenomPartEl = htmlspecialchars($_POST["prenomEl"]);
+ $activitePartEl = htmlspecialchars($_POST["activiteEl"]);
+ $datePartEl = htmlspecialchars($_POST["dateEl"]);
+ $lieuPartEl = htmlspecialchars($_POST["lieuEl"]);
+ $idPartEl = htmlspecialchars($_POST["id_ut"]);
+ $idActEl = htmlspecialchars($_POST["id_part"]);
  //  appel de la fonction insEleve du modèle
- insParticipes($nomEl,$prenomEl,$activiteEl, $dateEl, $lieuEl);
+ insParticipes($nomPartEl, $prenomPartEl, $activitePartEl, $datePartEl, $lieuPartEl, $idPartEl, $idActEl);
 
-// recherche des employés : appel de la fonction getActivites du modèle
+// recherche des activite : appel de la fonction getActivites du modèle
  $activites = getActivites();
 
  // inclusion du fichier d'affichage des employés de la vue
@@ -113,16 +117,16 @@ function participerActivite()
 
 function aiguillageActivite()
 {
-
+session_start();
 // récupération du code activite
 $idE = htmlspecialchars($_POST["codeElevAction"]);
 // aiguillage
 //if (!empty(htmlspecialchars($_POST["modif"])))
 //{
-// recherche de l'activite correspondant à ce code
-// via la fonction getActivite du modèle
+ //recherche de l'activite correspondant à ce code
+ //via la fonction getActivite du modèle
 //$activite = getActivite($idE);
-// inclusion du formulaire de modification (vue)
+ //inclusion du formulaire de modification (vue)
 //require_once "vue/formModifActivite.php";
 //}
 //else
@@ -130,6 +134,9 @@ $idE = htmlspecialchars($_POST["codeElevAction"]);
    	// recherche de l'activite correspondant à ce code
    // via la fonction getActivite du modèle
    $activite = getActivite($idE);
+   $idE = htmlspecialchars($_SESSION['idComp']);
+
+   $utilisateur = getProfile($idE);
    // inclusion du formulaire de de participation (vue)
    require_once "vue/formParticiper.php";
    }
@@ -153,7 +160,9 @@ updActivite($idEl, $nomEl, $dateEl, $lieuEl);
 
 // recherche des activites : appel de la fonction getActivites du modèle
  $activites = getActivites();
+$idE = htmlspecialchars($_SESSION['idComp']);
 
+   $utilisateur = getProfile($idE);
  // inclusion du fichier d'affichage des activites de la vue
  require_once "vue/activite.php";
 }
