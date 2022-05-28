@@ -134,24 +134,7 @@ require_once "vue/medicament.php";
 
 
 
-function aiguillageMedicament()
-{
 
-// récupération du code eleve
-$idE = htmlspecialchars($_POST["codeElevAction"]);
-// aiguillage
-if (!empty(htmlspecialchars($_POST["modif"])))
-{
-// recherche dmedicament correspondant à ce code
-// via la fonction getEleve du modèle
-$eleve = getMedicament($idE);
-// inclusion du formulaire de modification (vue)
-require_once "vue/formModifMedicament.php";
-}
-else
-// appel de la fonction contrôleur de suppression
-supprMedicament($idE);
-}
 
 function ajoutMedicament()
 {
@@ -175,26 +158,7 @@ function ajoutMedicament()
 
 }
 
-function modifMedicament()
-{
-// récupération des données du formulaire
- $idEl = htmlspecialchars($_POST["idEl"]);
- $nomEl = htmlspecialchars($_POST["nomEl"]);
- $descriptionEl = htmlspecialchars($_POST["descriptionEl"]);
- $Effet_SecondEl = htmlspecialchars($_POST["Effet_SecondEl"]);
- $Effet_TherapEl = htmlspecialchars($_POST["Effet_TherapEl"]);
- 
- // mise à jour dmedicament : appel de la fonction updMedicament 
 
- // du modèle
-updMedicament($idEl, $nomEl, $descriptionEl,$Effet_SecondEl,$Effet_TherapEl );
-
-// recherche medicaments : appel de la fonction getMedicament du modèle
- $medicaments = getMEdicaments();
-
- // inclusion du fichier d'affichage des medicament de la vue
- require_once "vue/medicament.php";
-}
 
 function modifProfile()
 {
@@ -245,16 +209,7 @@ $idE = htmlspecialchars($_SESSION['idComp']);
  require_once "vue/medicament.php";
 }
 
-function supprMedicament($idE)
-{
-// suppression dmedicament : appel de la fonction delMedicament du modèle
-delMedicament($idE);
-// recherche medicaments : appel de la fonction getMedicament du modèle
-$medicaments = getMedicaments();
-// inclusion du fichier d'affichage des medicaments de la vue
 
-require_once "vue/medicament.php";
-}
 
 function deconnexion()
 {
@@ -297,8 +252,9 @@ function aiguillageParticipation()
 // récupération du code eleve
 $idE = htmlspecialchars($_POST["codeProfileAction"]);
 
-// appel de la fonction contrôleur de suppression
-supprParticipation($idE);
+   // appel de la fonction contrôleur de suppression
+   supprParticipation($idE);
+
 }
 
 function supprParticipation($idE)

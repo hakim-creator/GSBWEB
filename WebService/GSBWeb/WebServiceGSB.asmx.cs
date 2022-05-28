@@ -218,19 +218,7 @@ MySqlConnection conn = new MySqlConnection(connString);
             
         }
 
-        [WebMethod]
-        public void updActivite(int idE,string nom, string date_activite, string Lieu)
-        {
-            string connString = "Server=localhost;Database=gsb;User Id = root; Password =; SslMode = none";
-            MySqlConnection conn = new MySqlConnection(connString);
-            conn.Open();
-            MySqlCommand commandeInscription_part = conn.CreateCommand();
-            commandeInscription_part.CommandText = "UPDATE  activite SET nom= '" + nom+"' , Date_Activite ='"+date_activite+"' , Lieu='"+ Lieu+"' WHERE id="+idE;
-            
-            
-            commandeInscription_part.ExecuteNonQuery();
-            conn.Close();
-        }
+       
 
         [WebMethod]
         public void updProfile(string nom, string prenom, string idE)

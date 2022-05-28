@@ -20,7 +20,7 @@ session_start();
     <div class="col col-lg-4">
       <form method="post" action="index.php?action=A">
        
-        
+        <h2>Ajouter une activité</h2>
   
   
   <div class="row mb-3">
@@ -47,7 +47,7 @@ session_start();
   
   <p>
 <input type="submit"
-value="Valider les modifications" class="btn btn-outline-dark"/>
+value="Valider" class="btn btn-outline-dark"/>
 </p>
 </form>
 
