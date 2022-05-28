@@ -17,7 +17,7 @@
     <div class="col col-lg-4">
       <form method="post" action="index.php?action=AM">
        
-        
+        <h2>Ajouter un médicament</h2>
   
   
   <div class="row mb-3">
@@ -60,7 +60,7 @@
   
   <p>
 <input type="submit"
-value="Valider les modifications" class="btn btn-outline-dark"/>
+value="Valider" class="btn btn-outline-dark"/>
 </p>
 </form>
 

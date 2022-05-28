@@ -145,27 +145,7 @@ else
 supprActivite($idE);
 }
 
-function modifActivite()
-{
-// récupération des données du formulaire
- $idEl = htmlspecialchars($_POST["idEl"]);
- $nomEl = htmlspecialchars($_POST["nomEl"]);
- $dateEl = htmlspecialchars($_POST["dateEl"]);
- $lieuEl = htmlspecialchars($_POST["lieuEl"]);
- 
- // mise à jour de l'activite : appel de la fonction updActivite 
 
- // du modèle
-updActivite($idEl, $nomEl, $dateEl, $lieuEl);
-
-// recherche des activites : appel de la fonction getActivites du modèle
- $activites = getActivites();
-$idE = htmlspecialchars($_SESSION['idComp']);
-
-   $utilisateur = getProfile($idE);
- // inclusion du fichier d'affichage des activites de la vue
- require_once "vue/activite.php";
-}
 
 function supprActivite($idE)
 {

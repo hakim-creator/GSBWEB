@@ -113,11 +113,13 @@
 
 
                         <h5>Historiques de participation:</h5>
-                        <form method="post" action="index.php?action=SH">
+                        
 
        
                     
                       <?php foreach ($historiques as $historique): ?>
+                        <form method="post" action="index.php?action=SH">
+
                         <input type="hidden" name="codeProfileAction" value="<?php echo $historique['0']; ?>" />
 
                    
@@ -158,14 +160,14 @@
                           <input type="button" class="btn btn-outline-dark" name="supHistorique" value="Annuler"
                           onClick="confirmSuppr(form);" />
                         
-
+                           </form>
                       <?php endforeach; ?>
   
 
        
   
                             
-                        </form>
+                       
 
                             
 
